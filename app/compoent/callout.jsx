@@ -1,5 +1,4 @@
 import styles from "./callout.module.css";
-import { createContext, useContext } from "react";
 
 /**
  * @typedef {"warn" | "info" | "default"} calloutKind
@@ -7,38 +6,32 @@ import { createContext, useContext } from "react";
 
 /**
  *
- * @type {React.Context<calloutKind>}
- */
-const CalloutContext = createContext("default");
-
-/**
- *
- * @param {React.ReactNode} props
- * @param {"warn" | "info" | "default" } [kind="default"]
- * @returns {React.ReactNode}
+ * @param children
+ * @param {calloutKind} [kind="default"]
  * @constructor
  */
 export function Callout({ children, kind = "default" }) {
   return (
-    <div>
-      <CalloutContext value={kind}>{children}</CalloutContext>
+    <div className={styles.callout}>
+      <CalloutIcon kind={kind} />
+      {children}
     </div>
   );
 }
 
 /**
  *
- * @returns {React.ReactNode}
+ * @param {calloutKind} [kind="default"]
  * @constructor
  */
-export function CalloutIcon() {
-  const kind = useContext(CalloutContext);
+function CalloutIcon({ kind = "default" }) {
   switch (kind) {
     case "info":
       return <span className={styles.calloutIcon}>💡</span>;
     case "warn":
       return <span className={styles.calloutIcon}>⚠️</span>;
+    case "default":
     default:
-      return null;
+      return <span className={styles.calloutIcon}></span>;
   }
 }
