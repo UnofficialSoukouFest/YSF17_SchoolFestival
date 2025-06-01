@@ -195,10 +195,10 @@ class SyncAgent {
           });
           /** @type {Blob} */
           const buf = GFileData.data;
-          const text = await buf.text();
+          const buffer = new Uint8Array(await buf.arrayBuffer());
           await fs.writeFile(
             path.join(this.options.realSyncPath, file.name),
-            text,
+            buffer,
           );
         }
       } catch {
@@ -209,10 +209,10 @@ class SyncAgent {
         });
         /** @type {Blob} */
         const buf = GFileData.data;
-        const text = await buf.text();
+        const buffer = new Uint8Array(await buf.arrayBuffer());
         await fs.writeFile(
           path.join(this.options.realSyncPath, file.name),
-          text,
+          buffer,
         );
       }
     }
