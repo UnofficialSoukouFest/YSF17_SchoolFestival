@@ -2,6 +2,11 @@ import styles from "./page.module.css";
 import { Callout } from "@/app/compoent/callout.jsx";
 import Image from "next/image";
 
+export const metadata = {
+  title: "蒼煌祭17th非公式ページ｜トップ",
+  description: "蒼煌祭17thの非公式のページのトップです。",
+};
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -15,9 +20,7 @@ export default function Home() {
         />
         <h1>横浜サイエンスフロンティア高校文化祭「蒼煌祭」</h1>
       </div>
-      <div>
-        カウントダウン
-      </div>
+      <div>カウントダウン</div>
       <Callout kind={"warn"}>
         <p>
           このサイトは非公式の有志による情報まとめサイトです。
@@ -42,23 +45,23 @@ export default function Home() {
       <div>
         <h2>来場に際しての注意</h2>
         <div>
-          <iframe 
-            src={"https://docs.google.com/presentation/d/e/2PACX-1vTmQeHPzEP7-2RDqIVzUkOWsNH-c_viIoOE3gNlkJxcR_7I-ruZBBRb4qJEOJr3itFXMYjF-DLjRTB4/pubembed?start=false&loop=true&delayms=5000"}
+          <iframe
+            src={
+              "https://docs.google.com/presentation/d/e/2PACX-1vTmQeHPzEP7-2RDqIVzUkOWsNH-c_viIoOE3gNlkJxcR_7I-ruZBBRb4qJEOJr3itFXMYjF-DLjRTB4/pubembed?start=false&loop=true&delayms=5000"
+            }
             border={"none"}
             width={320}
             height={190}
             allowFullScreen={true}
             mozallowfullscreen={"true"}
-            webkitallowfullscreen={"true"}>
-          </iframe>
+            webkitallowfullscreen={"true"}
+          ></iframe>
         </div>
       </div>
       <div>
         <h2>アクセス</h2>
         <p>アクセスは...</p>
-        <div>
-          Googleマップ
-        </div>
+        <div>Googleマップ</div>
         <div>
           <h3>時刻表</h3>
           <a>鶴見小野駅</a>

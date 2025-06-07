@@ -6,6 +6,12 @@ import { matchPrograms, parseProgramsData, Tags } from "@/app/lib/index.js";
 import ProgramSample from "@/app/program.mock.json";
 import { useState } from "react";
 
+/**export const metadata = {
+ *  title: "蒼煌祭17th非公式ページ｜企画",
+ *  description: "蒼煌祭17thの企画についての非公式のページです。",
+ *};
+ */
+
 export default function Program() {
   const [tags, setTags] = useState(new Tags([]));
   // TODO:サンプルデータにつきデータ取り扱いの正式な方式を考慮必要

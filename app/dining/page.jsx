@@ -1,6 +1,11 @@
-import styles from "./page.module.css"
-import Link from "next/link";
+import styles from "./page.module.css";
 import Image from "next/image";
+import Link from "next/link";
+
+export const metadata = {
+  title: "蒼煌祭17th非公式ページ｜食事",
+  description: "蒼煌祭17thの食事についての非公式のページです。",
+};
 
 export default function Dining() {
   return (
@@ -18,7 +23,8 @@ export default function Dining() {
             className={styles.imagebuttonImage}
             width={560}
             height={330}
-            style={{objectFit: "cover"}}/>
+            style={{ objectFit: "cover" }}
+          />
         </Link>
         <h1>カフェテリア</h1>
       </div>
@@ -31,7 +37,8 @@ export default function Dining() {
             className={styles.imagebuttonImage}
             width={560}
             height={330}
-            style={{objectFit: "cover"}}/>
+            style={{ objectFit: "cover" }}
+          />
         </Link>
         <h1>食販</h1>
       </div>
