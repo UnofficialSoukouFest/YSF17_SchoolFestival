@@ -15,6 +15,9 @@ export default function Home() {
         />
         <h1>横浜サイエンスフロンティア高校文化祭「蒼煌祭」</h1>
       </div>
+      <div>
+        カウントダウン
+      </div>
       <Callout kind={"warn"}>
         <p>
           このサイトは非公式の有志による情報まとめサイトです。
@@ -23,16 +26,48 @@ export default function Home() {
         </p>
       </Callout>
       <div>
-        <h2>「蒼煌祭」の由来</h2>
-        <p>由来は...</p>
+        <h2>目次</h2>
       </div>
       <div>
-        <h2>来場者注意点</h2>
-        <div>注意点のスライド</div>
+        <h2>名前の由来</h2>
+        <div>
+          <h3>「蒼煌祭」</h3>
+          <p>由来は...</p>
+        </div>
+        <div>
+          <h3>スローガン「澄」</h3>
+          <p>由来は...</p>
+        </div>
+      </div>
+      <div>
+        <h2>来場に際しての注意</h2>
+        <div>
+          <iframe 
+            src={"https://docs.google.com/presentation/d/e/2PACX-1vTmQeHPzEP7-2RDqIVzUkOWsNH-c_viIoOE3gNlkJxcR_7I-ruZBBRb4qJEOJr3itFXMYjF-DLjRTB4/pubembed?start=false&loop=true&delayms=5000"}
+            border={"none"}
+            width={320}
+            height={190}
+            allowFullScreen={true}
+            mozallowfullscreen={"true"}
+            webkitallowfullscreen={"true"}>
+          </iframe>
+        </div>
       </div>
       <div>
         <h2>アクセス</h2>
         <p>アクセスは...</p>
+        <div>
+          Googleマップ
+        </div>
+        <div>
+          <h3>時刻表</h3>
+          <a>鶴見小野駅</a>
+          <a>花月総持寺駅</a>
+        </div>
+      </div>
+      <div>
+        <h2>このサイトの情報源</h2>
+        <p>情報源</p>
       </div>
     </div>
   );
