@@ -28,6 +28,7 @@ export default function ProgramInput({ onchange, tags }) {
       <input
         type={"search"}
         value={inputValue}
+        placeholder={"企画名を入力"}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={(event) => {
           inputChangeHandler(event, onchange, setInputValue);
