@@ -1,0 +1,32 @@
+.pr-image{
+  display: block;
+  margin-inline: auto;
+  margin-block: 0.5em;
+}
+.pr-content{
+  margin-inline: 1em;
+}
+.pr-tags{
+  display: flex;
+  justify-content: end;
+  margin-inline: 2em;
+  margin-bottom: 1.5em;
+}
+.pr-tag{
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
+  margin-left: 1em;
+  background-color: #AAA;
+}
+.pr-subject{
+  display: flex;
+  margin-inline: 1em;
+  flex-wrap: wrap;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .pr-tag{
+    background-color: #666;
+  }
+}

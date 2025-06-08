@@ -11,12 +11,21 @@
   },
   {
     "id": "c8f366dc-65f9-43b6-99b0-29d1f43c7c3b",
-    "name": "根城はサイコロを振らない2",
+    "name": "根城はサイコロを振らないスペシャルエディション",
     "team": "2-3",
     "imagePath": "example.png",
     "programType": ["体験"],
     "location": "S45",
     "floor": 3,
     "prText": "競人2"
+  },
+  { "id": "b886e882-6cfc-47e2-816a-88c392bd8d34",
+    "name": "緑の羽根募金",
+    "team": "保健環境委員会",
+    "imagePath": "/tyu-wa_tekitei.png",
+    "programType": ["募金", "体験"],
+    "location": "昇降口",
+    "floor": 1,
+    "prText": "これは長いPR文章の例です。ワッくんの質量は数kgの場合と数十kgの場合がありますが、なぜかは分かりません。どっちみち水よりも密度が小さいです。ワニなのに。募金は何円入れたほうがいいとかじゃないです。"
   }
 ]

@@ -16,20 +16,11 @@ export default function Program() {
   const [tags, setTags] = useState(new Tags([]));
   // TODO:サンプルデータにつきデータ取り扱いの正式な方式を考慮必要
   const programs = parseProgramsData(ProgramSample);
-  if (tags.size !== 0) {
-    const matchedPrograms = matchPrograms(programs, tags);
-    return (
-      <div>
-        <ProgramInput onchange={setTags} />
-        <ProgramView programs={matchedPrograms} />
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <ProgramInput onchange={setTags} />
-        <ProgramView programs={programs} />
-      </div>
-    );
-  }
+  const displayPrograms = tags.size !== 0 ? matchPrograms(programs, tags) : programs;
+  return (
+    <div>
+      <ProgramInput onchange={setTags} />
+      <ProgramView programs={displayPrograms} />
+    </div>
+  );
 }

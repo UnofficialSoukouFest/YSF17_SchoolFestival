@@ -1,0 +1,25 @@
+.title-bar{
+  display: flex;
+  align-items: center;
+  padding-right: 36px;
+  margin-block: 0.5em;
+}
+.page-title{
+  text-align: center;
+  color: #008;
+  flex: 1;
+}
+.back-button{
+  color: #008;
+  display: flex;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .page-title{
+    color:#ededed; /* @/app/global.cssに合わせました */
+  }
+  .back-button{
+    color: #8FF;
+  }
+}
