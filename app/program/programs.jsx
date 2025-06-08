@@ -50,14 +50,13 @@ export default function ProgramsView() {
 function KindSelectMenu({}) {
   const visibleAtom = useMemo(() => atom(false), []);
   const [isVisible, setIsVisible] = useAtom(visibleAtom);
-  /** @type string[] */
   const kinds = useAtomValue(OptionsInSelectAtom, { store: kindsSelectStore });
   const showKind =
-    kinds.length >= 2
-      ? `${kinds[0]}...`
-      : kinds.length === 0
+    kinds.size >= 2
+      ? `${kinds.keys().next().value}...`
+      : kinds.size === 0
         ? "形態"
-        : kinds[0];
+        : kinds.keys().next().value;
   return (
     <Provider store={kindsSelectStore}>
       <SelectMenu multiple={true}>

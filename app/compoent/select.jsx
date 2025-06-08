@@ -5,23 +5,27 @@ import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
 import { useMemo } from "react";
 import { MdCheck } from "react-icons/md";
 
-export const OptionsInSelectAtom = atom(/** @type {string[]} */ []);
+export const OptionsInSelectAtom = atom(/** @type {Set<string>} */ new Set());
 export const OptionsAtom = atom(
   (get) => get(OptionsInSelectAtom),
   /**
    * @param {import("jotai").Getter} get
    * @param {import("jotai").Setter} set
-   * @param {string[]} options
+   * @param {string} option
    * @param {boolean} multiple
    */
-  (get, set, options, multiple) => {
+  (get, set, option, multiple) => {
     if (multiple) {
       const prevOptions = get(OptionsInSelectAtom);
-      /** @type {string[]} */
-      const newOptions = [...prevOptions, ...options];
-      set(OptionsInSelectAtom, newOptions);
+      if (prevOptions.has(option)) {
+        prevOptions.delete(option);
+        set(OptionsInSelectAtom, prevOptions);
+      } else {
+        const newOptions = prevOptions.add(option);
+        set(OptionsInSelectAtom, newOptions);
+      }
     } else {
-      set(OptionsInSelectAtom, options);
+      set(OptionsInSelectAtom, new Set([option]));
     }
   },
 );
@@ -69,7 +73,7 @@ export function SelectItem({ value, children }) {
     <span
       className={styles.itemSelected}
       onClick={() => {
-        setOption([value], ableMultiple);
+        setOption(value, ableMultiple);
         toggleChoose();
       }}
     >
