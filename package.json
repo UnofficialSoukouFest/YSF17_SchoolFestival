@@ -12,6 +12,7 @@
     "syncPublic": "node ./scripts/get_gdrive_image.js --sync-dir=/public"
   },
   "dependencies": {
+    "jotai": "^2.12.5",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
