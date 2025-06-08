@@ -1,9 +1,12 @@
-import styles from "./select.module.css";
-import { atom, useAtomValue, useSetAtom } from "jotai";
-import { useMemo } from "react";
+"use client";
 
-const OptionsInSelectAtom = atom(/** @type {string[]} */ []);
-const OptionsAtom = atom(
+import styles from "./select.module.css";
+import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
+import { useMemo } from "react";
+import { MdCheck } from "react-icons/md";
+
+export const OptionsInSelectAtom = atom(/** @type {string[]} */ []);
+export const OptionsAtom = atom(
   (get) => get(OptionsInSelectAtom),
   /**
    * @param {import("jotai").Getter} get
@@ -25,7 +28,6 @@ const OptionsAtom = atom(
 const IsMultipleAtom = atom(false);
 const MultipleAtom = atom(
   (get) => get(IsMultipleAtom),
-
   /**
    * @param {import("jotai").Getter} get
    * @param {import("jotai").Setter} set
@@ -41,19 +43,12 @@ const MultipleAtom = atom(
  * @param {Object} args
  * @param {React.ReactNode} args.children
  * @param {boolean} args.multiple
- * @param {React.Dispatch<React.SetStateAction<string[]>>} args.onSelected
  * @returns {React.ReactNode}
  * @constructor
  */
-export function SelectMenu({ children, multiple, onSelected }) {
+export function SelectMenu({ children, multiple }) {
   const setMultiple = useSetAtom(MultipleAtom);
   setMultiple(multiple);
-  const selected = useAtomValue(OptionsAtom);
-  useMemo(() => {
-    if (selected.length !== 0) {
-      onSelected(selected);
-    }
-  }, [selected]);
   return <>{children}</>;
 }
 
@@ -65,6 +60,9 @@ export function SelectMenu({ children, multiple, onSelected }) {
  * @constructor
  */
 export function SelectItem({ value, children }) {
+  const chosen = useMemo(() => atom(false), []);
+  const [isChosen, setChoose] = useAtom(chosen);
+  const toggleChoose = () => setChoose((prev) => !prev);
   const ableMultiple = useAtomValue(IsMultipleAtom);
   const setOption = useSetAtom(OptionsAtom);
   return (
@@ -72,9 +70,11 @@ export function SelectItem({ value, children }) {
       className={styles.itemSelected}
       onClick={() => {
         setOption([value], ableMultiple);
+        toggleChoose();
       }}
     >
       {children}
+      {isChosen ? <MdCheck /> : ""}
     </span>
   );
 }
