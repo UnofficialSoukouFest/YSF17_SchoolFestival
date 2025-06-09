@@ -64,7 +64,15 @@ function inputChangeHandler(event, onchange, setInput) {
     /** @type {string[]} */
     const init_tags = event.currentTarget.value.split(" ");
     const tags = new Tags(init_tags);
-    onchange(tags);
+    onchange((prev) => prev.union(tags));
     setInput("");
+  }
+  if (event.key === "Backspace" && event.currentTarget.value === "") {
+    onchange((prev) => {
+      /** @type {string[]} */
+      const oldTags = [...prev];
+      oldTags.pop();
+      return new Tags(oldTags);
+    });
   }
 }

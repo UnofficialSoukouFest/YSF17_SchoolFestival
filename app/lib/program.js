@@ -3,6 +3,51 @@
  * @typedef {string} uuid
  */
 
+/** @class */
+export class Programs {
+  /**
+   * @param {Program[] | undefined} init
+   */
+  constructor(init) {
+    if (init) {
+      this.programs = new Set(init);
+    } else {
+      this.programs = new Set();
+    }
+  }
+
+  /**
+   * 指定したタグを含む企画を返します。デフォルトでは、タグのいずれかが含まれたもののみを返します
+   * @param {Tags} tags
+   * @param {boolean} [is_complete=false] すべてのタグが完全に一致したもののみを返すか
+   * @return {Programs}
+   */
+  matchPrograms(tags, is_complete = false) {
+    /** @type {Programs} */
+    let matchedPrograms = new Programs([]);
+    for (const program of this.programs.keys()) {
+      const programTags = program.tags;
+      if (is_complete) {
+        if (tags.isSupersetOf(programTags)) {
+          matchedPrograms.programs.add(program);
+          continue;
+        }
+      }
+      if (!tags.isDisjointFrom(programTags)) {
+        matchedPrograms.programs.add(program);
+      }
+    }
+    return matchedPrograms;
+  }
+
+  /**
+   * @returns {SetIterator<Program>}
+   */
+  iter() {
+    return this.programs.keys();
+  }
+}
+
 /**
  * @typedef {Object} ProgramOption
  * @property {uuid} id
@@ -71,29 +116,4 @@ export function parseProgramsData(content) {
   return content.map((item) => {
     return new Program(item);
   });
-}
-
-/**
- * 指定したタグを含む企画を返します。デフォルトでは、タグのいずれかが含まれたもののみを返します
- * @param {Program[]} programs
- * @param {Tags} tags
- * @param {boolean} [is_complete=false] すべてのタグが完全に一致したもののみを返すか
- * @return {Program[]}
- */
-export function matchPrograms(programs, tags, is_complete = false) {
-  /** @type {Program[]} */
-  let matchedPrograms = [];
-  for (const program of programs) {
-    const programTags = program.tags;
-    if (is_complete) {
-      if (tags.isSupersetOf(programTags)) {
-        matchedPrograms.push(program);
-        continue;
-      }
-    }
-    if (!tags.isDisjointFrom(programTags)) {
-      matchedPrograms.push(program);
-    }
-  }
-  return matchedPrograms;
 }

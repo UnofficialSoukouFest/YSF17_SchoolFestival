@@ -3,14 +3,15 @@ import Link from "next/link";
 
 /**
  *
- * @param {import("../../lib/index").Program[]} programs
+ * @param {import("../../lib/index").Programs} programs
  * @constructor
  */
 export default function ProgramView({ programs }) {
+  const programsArray = Array.from(programs.iter());
   return (
     <div className={styles.list}>
       <ol>
-        {programs.map((program) => {
+        {programsArray.map((program) => {
           return (
             <li key={program.id}>
               <Link href={`/program/${program.id}`}>

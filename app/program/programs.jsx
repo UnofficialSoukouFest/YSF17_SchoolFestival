@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectMenu,
 } from "@/app/compoent/select.jsx";
-import { matchPrograms, parseProgramsData, Tags } from "@/app/lib/index.js";
+import { parseProgramsData, Programs, Tags } from "@/app/lib/index.js";
 import ProgramSample from "@/app/program.mock.json";
 import styles from "@/app/program/programs.module.css";
 import { atom, createStore, Provider, useAtom, useAtomValue } from "jotai";
@@ -18,7 +18,7 @@ const tagsAtom = atom(new Tags([]));
 const kindsSelectStore = createStore();
 const placesSelectStore = createStore();
 // TODO:サンプルデータにつきデータ取り扱いの正式な方式を考慮必要
-const programsAtom = atom(parseProgramsData(ProgramSample));
+const programsAtom = atom(new Programs(parseProgramsData(ProgramSample)));
 
 /**
  * @returns {JSX.Element}
@@ -26,10 +26,24 @@ const programsAtom = atom(parseProgramsData(ProgramSample));
  */
 export default function ProgramsView() {
   const [tags, setTags] = useAtom(tagsAtom);
-  const programs = useAtomValue(programsAtom);
-  const matchedPrograms = useMemo(() => {
-    return tags.size !== 0 ? matchPrograms(programs, tags) : programs;
-  }, [programs]);
+  const kindOptions = useAtomValue(OptionsInSelectAtom, {
+    store: kindsSelectStore,
+  });
+  const placeOptions = useAtomValue(OptionsInSelectAtom, {
+    store: placesSelectStore,
+  });
+  const programs = useAtomValue(
+    useMemo(() => {
+      return atom((get) => {
+        const programs = get(programsAtom);
+        const unionKindTags = tags.union(kindOptions);
+        const placeKindTags = unionKindTags.union(placeOptions);
+        return tags.size !== 0
+          ? programs.matchPrograms(placeKindTags)
+          : programs;
+      });
+    }, [tags, kindOptions, placeOptions]),
+  );
 
   return (
     <div>
@@ -38,7 +52,7 @@ export default function ProgramsView() {
         <KindSelectMenu />
         <PlaceSelectMenu />
       </div>
-      <ProgramView programs={matchedPrograms} />
+      <ProgramView programs={programs} />
     </div>
   );
 }
@@ -50,7 +64,10 @@ export default function ProgramsView() {
 function KindSelectMenu({}) {
   const visibleAtom = useMemo(() => atom(false), []);
   const [isVisible, setIsVisible] = useAtom(visibleAtom);
-  const kinds = useAtomValue(OptionsInSelectAtom, { store: kindsSelectStore });
+  const kinds = useAtomValue(
+    useMemo(() => atom((get) => get(OptionsInSelectAtom)), []),
+    { store: kindsSelectStore },
+  );
   const showKind =
     kinds.size >= 2
       ? `${kinds.keys().next().value}...`
