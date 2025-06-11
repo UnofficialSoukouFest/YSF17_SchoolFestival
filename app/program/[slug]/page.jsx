@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { parseProgramsData } from "@/app/lib/index.js";
-import TitleBarWithBack from "@/app/compoent/title_bar"
-import ProgramSample from "@/app/program.mock.json";
 import styles from "../slug_page.module.css";
+import TitleBarWithBack from "@/app/compoent/title_bar";
+import { parseProgramsData } from "@/app/lib/index.js";
+import ProgramSample from "@/app/program.mock.json";
+import Image from "next/image";
 
 export async function generateMetadata({ params }) {
   // read route params
@@ -35,7 +35,7 @@ export default async function Program({ params }) {
 
   return (
     <>
-      <TitleBarWithBack backpage="/program" pagename={program.name}/>
+      <TitleBarWithBack backpage="/program" pagename={program.name} />
       <Image
         src={program.imagePath}
         alt={program.name + " の画像"}
@@ -47,7 +47,9 @@ export default async function Program({ params }) {
         {program.programType.map((type) => {
           return (
             /* タグ検索できるようにしたらここを書き換える */
-            <div key={type} className={styles["pr-tag"]}>{type}</div>
+            <div key={type} className={styles["pr-tag"]}>
+              {type}
+            </div>
           );
         })}
       </div>

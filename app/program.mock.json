@@ -19,7 +19,8 @@
     "floor": 3,
     "prText": "競人2"
   },
-  { "id": "b886e882-6cfc-47e2-816a-88c392bd8d34",
+  {
+    "id": "b886e882-6cfc-47e2-816a-88c392bd8d34",
     "name": "緑の羽根募金",
     "team": "保健環境委員会",
     "imagePath": "/tyu-wa_tekitei.png",
