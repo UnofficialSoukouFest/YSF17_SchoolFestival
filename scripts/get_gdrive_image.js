@@ -1,6 +1,6 @@
 /**
  * Copyright 2022 Google LLC
- * Copyright 2025 Coelacanthiformes Project
+ * Copyright 2025 latimeria Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
  */
 import { authenticate } from "@google-cloud/local-auth";
 import { defineCommand, runMain } from "citty";
+import { GoogleAuth } from "google-auth-library";
 import { google } from "googleapis";
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
@@ -93,6 +94,17 @@ async function authorize() {
     await saveCredentials(client);
   }
   return client;
+}
+
+/**
+ * Load or request or authorization to call APIs.
+ * @return {Promise<import("google-auth-library").AnyAuthClient | import("google-auth-library").JSONClient>}
+ */
+async function authorizeAuto() {
+  const auth = new GoogleAuth({
+    scopes: SCOPES,
+  });
+  return auth.getClient();
 }
 
 /**
@@ -221,7 +233,7 @@ class SyncAgent {
 
 /**
  * The handler
- * @param {import("google-auth-library").OAuth2Client} authClient An authorized OAuth2 client.
+ * @param {import("google-auth-library").OAuth2Client | import("google-auth-library").JSONClient} authClient An authorized OAuth2 client.
  * @param {string} syncDir
  * @param {string} driveId
  * @param {boolean} force
@@ -255,11 +267,23 @@ const app = defineCommand({
       type: "boolean",
       default: false,
     },
+    noOAuth: {
+      type: "boolean",
+      default: false,
+    },
   },
   run({ args }) {
-    authorize()
-      .then((v) => driveHandler(v, args.syncDir, args.driveId, args.force))
-      .catch(console.error);
+    if (!args.noOAuth) {
+      authorize()
+        .then((v) => driveHandler(v, args.syncDir, args.driveId, args.force))
+        .catch(console.error);
+    } else {
+      authorizeAuto()
+        .then((v) => {
+          driveHandler(v, args.syncDir, args.driveId, args.force);
+        })
+        .catch(console.error);
+    }
   },
 });
 
