@@ -32,7 +32,7 @@ jobs:
 
       - name: Get public images
         run: |
-          GOOGLE_APPLICATION_CREDENTIALS=${{ steps.auth.outputs.credentials_file_path }} npm run syncPublic -- --noOAuth
+          GOOGLE_APPLICATION_CREDENTIALS=${{ steps.google-auth.outputs.credentials_file_path }} npm run syncPublic -- --noOAuth
 
       - name: Setup Pages
         uses: "actions/configure-pages@v5"

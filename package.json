@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "npx prettier . --write",
-    "syncPublic": "node ./scripts/get_gdrive_image.js --sync-dir=/public --no-oauth"
+    "syncPublic": "node ./scripts/get_gdrive_image.js --sync-dir=/public"
   },
   "dependencies": {
     "jotai": "^2.12.5",
