@@ -4,6 +4,9 @@
   "description": "A supporting tools for developing latimeria",
   "type": "module",
   "main": "index.js",
+  "bin": {
+    "latimeria": "bin/latimeria.js"
+  },
   "private": true,
   "scripts": {
     "lint": "eslint .",

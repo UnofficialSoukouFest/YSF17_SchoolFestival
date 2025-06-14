@@ -6,11 +6,11 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "format": "turbo run format",
-    "syncPublic": "turbo run syncPublic --  --sync-dir=../../apps/web/public"
+    "syncPublic": "latimeria  --sync-dir=apps/web/public"
   },
   "devDependencies": {
-    "turbo": "^2.5.4",
-    "@latimeria/latimeria-cli": "*"
+    "@latimeria/latimeria-cli": "^0.1.0",
+    "turbo": "^2.5.4"
   },
   "packageManager": "npm@10.9.2",
   "workspaces": [
