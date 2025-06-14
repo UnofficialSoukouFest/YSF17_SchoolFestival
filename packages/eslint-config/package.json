@@ -4,20 +4,20 @@
   "type": "module",
   "description": "",
   "exports": {
-  "./base": "./base.js"
+    "./base": "./base.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kanium3/YSF17_SchoolFestival.git"
   },
-  "dependencies": {
-    "eslint": "^9",
+  "devDependencies": {
     "@eslint/js": "^9",
+    "@stylistic/eslint-plugin": "^4.4",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10.1",
     "eslint-plugin-turbo": "^2.5.4",
     "typescript-eslint": "^8.34",
-    "eslint-config-prettier": "^10.1",
-    "@stylistic/eslint-plugin": "^4.4",
-    "globals": "^16.2"
+    "globals": "^16.2.0"
   },
   "private": true
 }
