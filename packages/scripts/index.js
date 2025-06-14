@@ -53,7 +53,7 @@ async function loadSavedCredentialsIfExist() {
     const content = await fs.readFile(TOKEN_PATH, { encoding: "utf8" });
     const credentials = JSON.parse(content);
     return google.auth.fromJSON(credentials);
-  } catch (err) {
+  } catch {
     return null;
   }
 }

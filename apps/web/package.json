@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier . --write"
+    "format": "next lint --fix"
   },
   "dependencies": {
     "jotai": "^2.12.5",
@@ -20,21 +20,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@google-cloud/local-auth": "^3.0.1",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-    "citty": "^0.1.6",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
-    "eslint-config-prettier": "^10.1.5",
-    "google-auth-library": "^9.15.1",
-    "googleapis": "^149.0.0",
-    "pouchdb": "^9.0.0",
-    "prettier": "3.5.3",
-    "turbo": "^2.5.4"
-  },
-  "packageManager": "npm@10.9.2",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+    "@latimeria/eslint-config": "*"
+  }
 }

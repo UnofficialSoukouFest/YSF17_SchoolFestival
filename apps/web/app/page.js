@@ -30,7 +30,7 @@ export default function Home() {
       </div>
 
       <div className="contentBox">
-        <Callout kind={"warn"}>
+        <Callout kind="warn">
           <p>
             このサイトは非公式の有志による情報まとめサイトです。
             正確な情報提供を目指していますが、不確実な情報が含まれているかもしれません。
@@ -39,7 +39,7 @@ export default function Home() {
         </Callout>
       </div>
 
-      <div id="home_index" className={"contentBox"}>
+      <div id="home_index" className="contentBox">
         <h2>目次</h2>
         <ul>
           <li>
@@ -57,28 +57,26 @@ export default function Home() {
         </ul>
       </div>
 
-      <div id="home_aboutFest" className={"contentBox"}>
+      <div id="home_aboutFest" className="contentBox">
         <h2>蒼煌祭について</h2>
         <p>蒼煌祭いろいろ書きこみ書きこみ</p>
       </div>
 
-      <div id="home_notice" className={"contentBox"}>
+      <div id="home_notice" className="contentBox">
         <h2>来場に際しての注意</h2>
         <div>
           <iframe
-            src={
-              "https://docs.google.com/presentation/d/e/2PACX-1vTmQeHPzEP7-2RDqIVzUkOWsNH-c_viIoOE3gNlkJxcR_7I-ruZBBRb4qJEOJr3itFXMYjF-DLjRTB4/pubembed?start=false&loop=true&delayms=5000"
-            }
-            border={"none"}
+            src="https://docs.google.com/presentation/d/e/2PACX-1vTmQeHPzEP7-2RDqIVzUkOWsNH-c_viIoOE3gNlkJxcR_7I-ruZBBRb4qJEOJr3itFXMYjF-DLjRTB4/pubembed?start=false&loop=true&delayms=5000"
+            border="none"
             allowFullScreen={true}
-            mozallowfullscreen={"true"}
-            webkitallowfullscreen={"true"}
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
             className="slide"
           ></iframe>
         </div>
       </div>
 
-      <div id="home_access" className={"contentBox"}>
+      <div id="home_access" className="contentBox">
         <h2>アクセス</h2>
         <p>アクセスは...</p>
         <div className="slide">
@@ -105,7 +103,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="home_source" className={"contentBox"}>
+      <div id="home_source" className="contentBox">
         <h2>このサイトの情報源</h2>
         <p>情報源</p>
       </div>

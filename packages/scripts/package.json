@@ -6,7 +6,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "syncPublic": "node index.js"
+    "lint": "eslint .",
+    "syncPublic": "node index.js",
+    "format": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,8 @@
     "citty": "^0.1.6",
     "google-auth-library": "^9.15.1",
     "googleapis": "^149.0.0",
-    "pouchdb": "^9.0.0"
+    "pouchdb": "^9.0.0",
+    "@latimeria/eslint-config": "*",
+    "eslint": "^9.26.0"
   }
 }

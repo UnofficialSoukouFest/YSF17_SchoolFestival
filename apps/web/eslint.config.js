@@ -1,5 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import eslintConfigPrettier from "eslint-config-prettier";
+import { config } from "@latimeria/eslint-config/base";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -10,9 +10,6 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"),
-  eslintConfigPrettier,
-];
+const eslintConfig = [...config, ...compat.extends("next/core-web-vitals")];
 
 export default eslintConfig;
