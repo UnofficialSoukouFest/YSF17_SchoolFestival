@@ -3,11 +3,13 @@
   align-items: center;
   padding-right: 36px;
   margin-block: 0.5em;
+  border-bottom: solid 2px hsla(200, 100%, 60%, 0.8); /* @/app/global.cssから拝借 */
 }
 .page-title {
   text-align: center;
   color: #008;
   flex: 1;
+  font-weight: bold;
 }
 .back-button {
   color: #008;

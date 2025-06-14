@@ -10,7 +10,7 @@
   display: flex;
   justify-content: end;
   margin-inline: 2em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 .pr-tag {
   padding-block: 0.25em;
@@ -22,6 +22,10 @@
   display: flex;
   margin-inline: 1em;
   flex-wrap: wrap;
+  padding-inline: auto;
+}
+.pr-text {
+  margin-inline: 1em;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -40,14 +40,14 @@ export default function Cafeteria() {
       </div>
       <div>
         <h1 style={{ paddingTop: "1rem" }}>注意事項</h1>
-        <div className={styles.bulletedList}>
+        <ul className={styles.bulletedList}>
           {/** 箇条書きのルールも必要？ */}
-          <p>・非公式情報です。情報に誤りがある可能性があります。</p>
-          <p>
+          <li>・非公式情報です。情報に誤りがある可能性があります。</li>
+          <li>
             ・食券を買い、そのメニューの列に並んでください。途中、通路がありますので詰めすぎないようにお気を付けください。
-          </p>
-          <p>・容器は使い捨てです。</p>
-        </div>
+          </li>
+          <li>・容器は使い捨てです。</li>
+        </ul>
       </div>
     </div>
   );

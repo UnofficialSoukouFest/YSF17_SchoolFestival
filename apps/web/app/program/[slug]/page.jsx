@@ -55,10 +55,12 @@ export default async function Program({ params }) {
       </div>
       <div className={styles["pr-content"]}>
         <div className={styles["pr-subject"]}>
-          <h2>{program.name}</h2>
-          <h2 style={{ marginLeft: "auto" }}>{"@" + program.location}</h2>
+          <h3>{program.name}</h3>
+          <h3 style={{ marginLeft: "auto" }}>
+            {program.floor + "階 @" + program.location}
+          </h3>
         </div>
-        <p>{program.prText || ""}</p>
+        <div className={styles["pr-text"]}>{program.prText || ""}</div>
       </div>
       {/*地図も作りましょう*/}
       <div style={{ marginTop: "1em" }}>位置を示す地図</div>
