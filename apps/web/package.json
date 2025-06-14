@@ -4,18 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "lint": "eslint",
-    "format": "prettier . --write",
-    "syncPublic": "turbo run syncPublic --  --sync-dir=../../apps/web/public"
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "npx prettier . --write"
   },
   "dependencies": {
     "jotai": "^2.12.5",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "@latimeria/core": "*"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -29,8 +30,7 @@
     "googleapis": "^149.0.0",
     "pouchdb": "^9.0.0",
     "prettier": "3.5.3",
-    "turbo": "^2.5.4",
-    "@latimeria/latimeria-cli": "*"
+    "turbo": "^2.5.4"
   },
   "packageManager": "npm@10.9.2",
   "workspaces": [

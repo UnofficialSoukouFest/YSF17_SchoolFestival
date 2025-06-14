@@ -1,0 +1,22 @@
+{
+  "name": "@latimeria/latimeria-cli",
+  "version": "0.1.0",
+  "description": "A supporting tools for developing latimeria",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "syncPublic": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kanium3/YSF17_SchoolFestival.git"
+  },
+  "devDependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "citty": "^0.1.6",
+    "google-auth-library": "^9.15.1",
+    "googleapis": "^149.0.0",
+    "pouchdb": "^9.0.0"
+  }
+}

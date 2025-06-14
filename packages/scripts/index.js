@@ -234,17 +234,18 @@ class SyncAgent {
 /**
  * The handler
  * @param {import("google-auth-library").OAuth2Client | import("google-auth-library").JSONClient} authClient An authorized OAuth2 client.
- * @param {string} syncDir
+ * @param {string | undefined} syncDir
  * @param {string} driveId
  * @param {boolean} force
  */
 async function driveHandler(authClient, syncDir, driveId, force) {
   const drive = google.drive({ version: "v3", auth: authClient });
+  const resolveSyncDir = syncDir ? syncDir : resolve_path_from_cwd("/public");
   const agent = new SyncAgent({
     folderID: driveId,
     force: force,
     matchRule: DEFAULT_SYNC_FILE_REGEXP,
-    realSyncPath: resolve_path_from_cwd(syncDir),
+    realSyncPath: resolveSyncDir,
   });
   await agent.setup();
   await agent.sync(drive);

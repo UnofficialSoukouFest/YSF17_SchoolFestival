@@ -7,9 +7,9 @@ import {
   SelectItem,
   SelectMenu,
 } from "@/app/compoent/select.jsx";
-import { parseProgramsData, Programs, Tags } from "@/app/lib/index.js";
 import ProgramSample from "@/app/program.mock.json";
 import styles from "@/app/program/programs.module.css";
+import { parseProgramsData, Programs, Tags } from "@latimeria/core";
 import { atom, createStore, Provider, useAtom, useAtomValue } from "jotai";
 import { useMemo } from "react";
 
