@@ -19,7 +19,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'LINE Seed JP', sans-serif;
+  font-family: var(--font-line-seed-jp),var(--font-noto-sans-jp), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

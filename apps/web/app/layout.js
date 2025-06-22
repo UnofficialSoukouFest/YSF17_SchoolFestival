@@ -1,10 +1,37 @@
 import './globals.css'
 import Menu from '@/app/menu.jsx'
 import { Noto_Sans_JP } from 'next/font/google'
+import localFont from 'next/font/local'
 
 const notoSansJP = Noto_Sans_JP({
   variable: '--font-noto-sans-jp',
   subsets: ['latin'],
+})
+
+const lineSeedJP = localFont({
+  src: [
+    {
+      path: '../public/LINESeedJP_OTF_Th.woff2',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../public/LINESeedJP_OTF_Rg.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/LINESeedJP_OTF_Eb.woff2',
+      weight: '900',
+      style: 'normal',
+    },
+    {
+      path: '../public/LINESeedJP_OTF_Bd.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-line-seed-jp',
 })
 
 export const metadata = {
@@ -15,10 +42,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
-      <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-seed-jp/line-seed-jp.css" />
-      </head>
-      <body className={notoSansJP.variable}>
+      <body className={`${notoSansJP.variable} ${lineSeedJP.variable}`}>
         <Menu />
         <div id="main-content">
           {children}
