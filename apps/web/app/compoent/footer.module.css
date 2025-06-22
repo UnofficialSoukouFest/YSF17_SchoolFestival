@@ -1,27 +1,71 @@
-.ft-main {
+.ft {
   z-index: 100; /* 最前面の意 */
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  position: fixed; /* 他の要素に位置が全く影響されない */
+  bottom: 0; /* 下の余白ゼロ */
   height: 64px;
-  border-top: 1px solid #ccc;
-  background-color: var(--background);
-  opacity: 85%;
+  width: 100vw;
 }
-.ft-main > nav > ul{
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
+
+.ft-blur {
+  position: absolute; /* ft基準 */
+  background-color: hsla(0, 0%, 100%, 0.85);
+  backdrop-filter: blur(5px);
+  height: 100%;
+  width: 100%;
 }
-.ft-main > nav > ul > li{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (prefers-color-scheme: dark) {
+  .ft-blur {
+    background-color: hsla(0, 0%, 0%, 0.85);
+  }
 }
-.ft-main > nav > ul > li > a > div{
+
+.ft-main {
+  position: absolute; /* ft基準 */
+  width: 100%;
+}
+
+.ft-list {
+  display: flex; /* 横に並べる */
+  justify-content: space-around; /* 余白が |1 2 2 2 2 1| */
+  list-style: none; /* ・をなくす */
+  width: 100%;
+}
+
+.ft-item {
   position: relative;
-  top: -20px;
-  padding:0;
+  display: flex;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  text-decoration: none; /* <a>タグは標準で underline してしまうので */
+}
+.ft-item-active {
+  background-color: #42507B;
+  color: var(--background);
+}
+.ft-item-normal {
+  /* backgroundなし */
   color: var(--foreground);
-  text-decoration: none;
+}
+@media (prefers-color-scheme: dark) {
+  .ft-item-active {
+    background-color: var(--foreground);
+  }
+}
+
+.ft-icon {
+  position: absolute; /* ft-item基準 */
+  top: 0;
+  color: inherit;
+  background-color: inherit;
+}
+
+.ft-label {
+  position: absolute; /* ft-item基準 */
+  bottom: 0;
+  font-size: 14px;
+  line-height: 24px; /* 実質height */
+  color: inherit;
+  background-color: inherit;
 }
