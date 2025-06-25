@@ -28,12 +28,12 @@ export default function Ysfmap() {
         <LayersControl.BaseLayer checked name="1階">
           <LayerGroup>
             <ImageOverlay url={layersUrl[0]} bounds={new LatLngBounds([[0, 0], [picheight, picwidth]])} />
+            <Polygon1f />
           </LayerGroup>
         </LayersControl.BaseLayer>
         <LayersControl.BaseLayer name="2階">
           <LayerGroup>
             <ImageOverlay url={layersUrl[1]} bounds={new LatLngBounds([[0, 0], [picheight, picwidth]])} />
-            <Polygon1f />
           </LayerGroup>
         </LayersControl.BaseLayer>
       </LayersControl>
