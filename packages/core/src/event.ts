@@ -7,11 +7,14 @@ export const eventSchema = v.object({
   endTime: v.pipe(v.string(), v.isoDateTime()),
   location: v.string(),
   id: v.string(),
+  eventType: v.string(),
 })
 
 export const organizationSchema = v.object({
   team: v.string(),
   programId: v.pipe(v.string(), v.nonEmpty(), v.slug()),
+  summary: v.string(),
+  hashtag: v.array(v.string()),
   timetable: v.array(eventSchema),
 })
 
