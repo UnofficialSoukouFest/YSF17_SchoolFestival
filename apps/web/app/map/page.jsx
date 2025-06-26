@@ -10,7 +10,6 @@ export default function Map() {
     <div>
       <h2>地図</h2>
       <LazyMap />
-      <p> coming soon...... </p>
     </div>
   )
 }

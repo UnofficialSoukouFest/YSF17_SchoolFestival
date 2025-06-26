@@ -1,0 +1,110 @@
+.allergiesSelectingTab {
+  border: 2px hsla(200, 100%, 60%, 0.8) solid;
+  border-radius: 5px;
+  width: fit-content;
+  /** background: ; */
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.reactAriaHeader {
+  font-size: 1.143rem;
+  font-weight: bold;
+  padding: 0 0.714rem;
+}
+
+.reactAriaListBoxSection {/** :not(:first-child) { */
+  margin-top: 12px;
+  border-left: #000000 1px solid;
+}
+
+/** .listBox {
+  background-color: #ffffff;
+  border: #000000 1px solid;
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr;
+  scrollbar-gutter: auto;
+  overflow-y: auto;
+  height: 300px;
+  width: 100%;
+} */
+/** +20品目のところとか2,3列横に伸ばしたかったけどやり方がよくわからない */
+@media (min-width: 582px) { /** 194px * 3 */
+  .listBox {
+    background-color: #ffffff;
+    border: #000000 1px solid;
+    padding: 0.5em;
+    scrollbar-gutter: auto;
+    overflow-y: auto;
+    height: 300px;
+    width: calc(100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 388px) and (max-width: 581px) { /** 194px * 2 */
+  .listBox {
+    background-color: #ffffff;
+    border: #000000 1px solid;
+    padding: 0.5em;
+    scrollbar-gutter: auto;
+    overflow-y: auto;
+    height: 300px;
+    width: calc(100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 387px) {
+  .listBox {
+    background-color: #ffffff;
+    border: #000000 1px solid;
+    padding: 0.5em;
+    scrollbar-gutter: auto;
+    overflow-y: auto;
+    height: 300px;
+    width: calc(100%);
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.itemCollection {
+  display: grid;
+  /** grid-template-columns: 1fr/** repeat(auto-fill, 194px); */
+}
+
+.items {
+  margin: 0.15em;
+  padding: 0.35em;
+  padding-left: 0.7em;
+  border-radius: 5px;
+
+  /*padding: 0 0.571rem 0 1.571rem;*/
+
+  &[data-focus-visible] {
+    outline: none;
+  }
+
+  &[data-selected] {
+    font-weight: 600;
+    background: #228b22;/** forest green */
+    color: #ffffff;
+
+    &::before {
+      content: '✓';
+      content: '✓' / '';
+      alt: ' ';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+    }
+  }
+
+  /**&[data-focused]
+  &[data-pressed] {
+    background: #00ff00;
+    color: unset;
+  }*/
+}

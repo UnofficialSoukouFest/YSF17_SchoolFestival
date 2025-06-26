@@ -1,5 +1,5 @@
 .ft {
-  z-index: 100; /* 最前面の意 */
+  z-index: 9999; /* 最前面の意 */
   position: fixed; /* 他の要素に位置が全く影響されない */
   bottom: 0; /* 下の余白ゼロ */
   height: 64px;

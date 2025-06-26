@@ -15,9 +15,12 @@ export default function Footer() {
   */
 
   const pathname = usePathname()
-  const splitPath = pathname.split('/')
-  const [activePage, setActivePage] = useState('/' + splitPath[1])
+  const [activePage, setActivePage] = useState(() => {
+    const splitPath = pathname.split('/')
+    return '/' + splitPath[1]
+  })
   useEffect(() => {
+    const splitPath = pathname.split('/')
     if (splitPath.length == 2) {
       setActivePage('/' + splitPath[1])
     }
