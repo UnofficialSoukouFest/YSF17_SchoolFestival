@@ -1,5 +1,6 @@
 import nextConfig from '@/next.config.js'
 
+export * from './svg-controller.js'
 export * from '@latimeria/core'
 
 /**

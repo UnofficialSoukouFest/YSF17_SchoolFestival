@@ -1,3 +1,7 @@
-import { defineConfig } from 'vitest/config'
+import { defineConfig, mergeConfig } from 'vitest/config'
+import rootConfig from '../../vitest.config.js'
 
-export default defineConfig({})
+export default mergeConfig(
+  rootConfig,
+  defineConfig({}),
+)
