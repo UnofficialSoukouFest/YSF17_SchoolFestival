@@ -51,15 +51,7 @@ const mapList = [
     raw: RoofTopMapRaw,
   }]
 
-import styles from './ysfmap.module.css'
-import 'leaflet/dist/leaflet.css' // リーフレットの本体のCSSの読み込み(これしないと地図が崩れる)
-import Image from 'next/image'
-import Link from 'next/link'
-
-import programs from '../program.mock.json'
-import { parseProgramsData } from '@latimeria/core'
-
-const items = [
+const floorOptions = [
   { id: 1, item: '1F' },
   { id: 2, item: '2F' },
   { id: 3, item: '3F' },
@@ -68,34 +60,13 @@ const items = [
   { id: 6, item: '屋上' },
 ]
 
-const RadioButtonItems = propaties =>
-  items.map((item) => {
-    return (
-      <label key={item.id}>
-        <input
-          type="radio"
-          value={item.item}
-          onChange={propaties.handleChange}
-          checked={propaties.checkedValue === item.item}
-        />
-        {item.item}
-      </label>
-    )
-  })
+import styles from './ysfmap.module.css'
+import 'leaflet/dist/leaflet.css' // リーフレットの本体のCSSの読み込み(これしないと地図が崩れる)
+import Image from 'next/image'
+import Link from 'next/link'
 
-const InputRadio = () => {
-  const [checkedValue, setCheckedValue] = useState(items[0].item)
-  const handleChange = event => setCheckedValue(event.target.value)
-
-  return (
-    <div>
-      <RadioButtonItems
-        handleChange={handleChange}
-        checkedValue={checkedValue}
-      />
-    </div>
-  )
-}
+import programs from '../program.mock.json'
+import { parseProgramsData } from '@latimeria/core'
 
 export default function Ysfmap() {
   const programsParse = parseProgramsData(programs)
@@ -105,6 +76,10 @@ export default function Ysfmap() {
   const picheight = screenHeight * 0.75
   const displayWidth = screenWidth >= 1300 ? '60vw' : '95vw'
   const programsList = [...programsParse.iter()]
+  const [pickFloor, setPickFloor] = useState('1F')
+  const handleRadio = (event) => {
+    setPickFloor(event.target.value)
+  }
   /** @type {[{aria:string , item:Program[]}]} */
   return (
     <div className={styles.leafletMap}>
@@ -115,8 +90,14 @@ export default function Ysfmap() {
         style={{ width: displayWidth, height: '75vh' }}
         maxBounds={[[0, 0], [picheight, picwidth]]}
       >
-        <InputRadio />
-        {mapList.filter(item => item.floor.includes('1F')).map((item) => {
+        {floorOptions.map((content) => {
+          return (
+            <div key={content.id}>
+              <input type="radio" name="floorChoice" value={content.item} checked={setPickFloor == content.item} onChange={handleRadio} key={content.id}></input>
+            </div>
+          )
+        })}
+        {mapList.filter(item => item.floor.includes(pickFloor)).map((item) => {
           return (
             <div key={item.floor}>
               <FloorLayerGroupProvider value={{
