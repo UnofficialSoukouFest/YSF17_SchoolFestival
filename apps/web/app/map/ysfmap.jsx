@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { CRS, LatLng } from 'leaflet'
-import { MapContainer, LayersControl } from 'react-leaflet'
+import { MapContainer } from 'react-leaflet'
 import { FloorLayer, FloorLayerGroupProvider, PlacePolygon } from '@/app/map/layer'
 
 /* eslint-disable import-x/no-duplicates */
@@ -23,32 +24,39 @@ const mapList = [
     floor: '1F',
     url: OneFloorMap,
     raw: OneFloorMapRaw,
+    cssid: 'radio1F',
   },
   {
     floor: '2F',
     url: TwoFloorMap,
     raw: TwoFloorMapRaw,
+    cssid: 'radio2F',
   },
   {
     floor: '3F',
     url: ThreeFloorMap,
     raw: ThreeFloorMapRaw,
+    cssid: 'radio3F',
   },
   {
     floor: '4F',
     url: FourFloorMap,
     raw: FourFloorMapRaw,
+    cssid: 'radio4F',
   },
   {
     floor: '5F',
     url: FiveFloorMap,
     raw: FiveFloorMapRaw,
+    cssid: 'radio5F',
   },
   {
     floor: '屋上',
     url: RoofTopMap,
     raw: RoofTopMapRaw,
-  }]
+    cssid: 'radioRoof',
+  },
+]
 
 import styles from './ysfmap.module.css'
 import 'leaflet/dist/leaflet.css' // リーフレットの本体のCSSの読み込み(これしないと地図が崩れる)
@@ -67,6 +75,10 @@ export default function Ysfmap({ picheight, picwidth }) {
   }
   const programsParse = parseProgramsData(programs)
   const programsList = [...programsParse.iter()]
+  const [pickFloor, setPickFloor] = useState('1F')
+  const handleRadio = (event) => {
+    setPickFloor(event.target.value)
+  }
   /** @type {[{aria:string , item:Program[]}]} */
   return (
     <div className={styles.leafletMap}>
@@ -77,33 +89,41 @@ export default function Ysfmap({ picheight, picwidth }) {
         style={{ width: picwidth, height: picheight }}
         maxBounds={[[0, 0], [picheight, picwidth]]}
       >
-        <LayersControl position="bottomright" collapsed="false">
-          {mapList.map((item) => {
-            return (
-              <LayersControl.BaseLayer checked={item.floor === '1F'} name={item.floor} key={item.floor}>
-                <FloorLayerGroupProvider value={{
+        {mapList.map((item) => {
+          return (
+            <div key={item.id}>
+              <input type="radio" name="floorChoice" value={item.floor} checked={setPickFloor == item.floor} onChange={handleRadio} key={item.floor}></input>
+            </div>
+          )
+        })}
+        {mapList.filter(item => item.floor.includes(pickFloor)).map((item) => {
+          return (
+            <div key={item.floor}>
+              <FloorLayerGroupProvider
+                value={{
                   src: item.url,
                   content: item.raw,
                   picheight: picheight,
-                  picwidth: picwidth }}
-                >
-                  <FloorLayer>
-                    {programsList.filter(content => content.aria.includes(item.floor)).map((content) => {
-                      return (
-                        <PlacePolygon id={content.options.room} pathOptions={{ color: '#0000FF', fillColor: '#0000FFFF', weight: 1 }} key={content.id}>
-                          <Image src={content.options.imagePath} alt="サンプルPR画像" width={100} height={100} key={content.id} />
-                          <Link href={`/program/${content.id}`}>
-                            {content.name}
-                          </Link>
-                        </PlacePolygon>
-                      )
-                    })}
-                  </FloorLayer>
-                </FloorLayerGroupProvider>
-              </LayersControl.BaseLayer>
-            )
-          })}
-        </LayersControl>
+                  picwidth: picwidth,
+                }}
+                key={item.floor}
+              >
+                <FloorLayer>
+                  {programsList.filter(content => content.aria.includes(item.floor)).map((content) => {
+                    return (
+                      <PlacePolygon id={content.options.room} pathOptions={{ color: '#0000FF', fillColor: '#0000FFFF', weight: 1 }} key={content.id}>
+                        <Image src={content.options.imagePath} alt="サンプルPR画像" width={100} height={100} key={content.id} />
+                        <Link href={`/program/${content.id}`} key={content.id}>
+                          {content.name}
+                        </Link>
+                      </PlacePolygon>
+                    )
+                  })}
+                </FloorLayer>
+              </FloorLayerGroupProvider>
+            </div>
+          )
+        })}
       </MapContainer>
     </div>
   )
