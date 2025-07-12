@@ -3,3 +3,11 @@
     display: flex;
     justify-content: center;
 }
+.leafletControl {
+  background: #222 !important;
+  color: #fff !important;
+  font-size: 1.1em;
+}
+.leafletSelector {
+  accent-color: #ff9900;
+}
