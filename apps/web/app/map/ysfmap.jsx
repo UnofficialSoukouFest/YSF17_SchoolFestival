@@ -1,8 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import { CRS, LatLng } from 'leaflet'
 import { LayersControl, MapContainer } from 'react-leaflet'
-import { FloorLayer, FloorLayerGroupProvider, PlacePolygon } from '@/app/map/layer'
+
+import 'leaflet/dist/leaflet.css' // リーフレットの本体のCSSの読み込み(これしないと地図が崩れる)
+import Image from 'next/image'
 
 /* eslint-disable import-x/no-duplicates */
 import OneFloorMap from './data/bg/1.svg?url'
@@ -59,12 +62,11 @@ const mapList = [
 
 import './radioButton.css'
 import mapStyles from './ysfmap.module.css'
-import 'leaflet/dist/leaflet.css' // リーフレットの本体のCSSの読み込み(これしないと地図が崩れる)
-import Image from 'next/image'
-import Link from 'next/link'
 
 import programs from '../program.mock.json'
 import { parseProgramsData } from '@latimeria/core'
+import { FloorLayer, FloorLayerGroupProvider, PlacePolygon } from '@/app/map/layer'
+import { ProgramPopup } from './small-program-page'
 
 export default function Ysfmap({ picheight, picwidth }) {
   if (!picheight) {
@@ -75,6 +77,7 @@ export default function Ysfmap({ picheight, picwidth }) {
   }
   const programsParse = parseProgramsData(programs)
   const programsList = [...programsParse.iter()]
+  const [displayPage, setDisplayPage] = useState(0)
   /** @type {[{aria:string , item:Program[]}]} */
   return (
     <div className={mapStyles.leafletMap}>
@@ -103,9 +106,7 @@ export default function Ysfmap({ picheight, picwidth }) {
                           return (
                             <PlacePolygon id={content.options.room} pathOptions={{ color: '#0000FF', fillColor: '#0000FFFF', weight: 1 }} key={content.id}>
                               <Image src={content.options.imagePath} alt="サンプルPR画像" width={100} height={100} key={content.id} />
-                              <Link href={`/program/${content.id}`}>
-                                {content.name}
-                              </Link>
+                              <button className={mapStyles.popupButton} type="button" onClick={handleclick}>{content.name}</button>
                             </PlacePolygon>
                           )
                         })}

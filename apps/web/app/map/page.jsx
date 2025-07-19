@@ -9,6 +9,7 @@ export default function Map() {
   return (
     <div>
       <h2>地図</h2>
+      <p>地図内をクリックすると各イベントの詳細が表示されます。</p>
       <LazyMap />
     </div>
   )
