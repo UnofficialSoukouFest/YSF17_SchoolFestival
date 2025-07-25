@@ -1,0 +1,21 @@
+.backdrop{
+    position: fixed;
+    background-color: var(--semantic-shadow-default);
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    z-index: 25000;
+}
+.main{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: var(--popwidth);
+    height: var(--popheight);
+    background-color: var(--semantic-background-white);
+    z-index: 25001;
+}

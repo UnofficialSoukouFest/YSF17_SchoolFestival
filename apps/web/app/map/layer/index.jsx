@@ -41,7 +41,7 @@ export function FloorLayer({ children }) {
  * @return {React.ReactNode}
  * @constructor
  */
-export function PlacePolygon({ id, pathOptions, children }) {
+export function PlacePolygon({ id, pathOptions, children, handleClick }) {
   const map = useMap()
   const groupContext = useContext(FloorLayerGroupContext)
   const svgController = new SVGController(groupContext.content)
@@ -79,12 +79,19 @@ export function PlacePolygon({ id, pathOptions, children }) {
   // 最後のポリゴンは閉じるためのものなので削除
   polygons.pop()
 
+  const eventHandlers = useMemo(
+    () => ({
+      click() {
+        ()
+      },
+    }),
+    [],
+  )
+
   return (
     <LayerGroup>
       <Polygon pathOptions={pathOptions} positions={polygons}>
-        <Popup>
-          {children}
-        </Popup>
+        {children}
       </Polygon>
     </LayerGroup>
   )
