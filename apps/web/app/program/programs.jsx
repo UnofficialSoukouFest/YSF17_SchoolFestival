@@ -5,7 +5,7 @@ import ProgramView from '@/app/compoent/program/program-view.jsx'
 import ProgramSample from '@/app/program.mock.json'
 import styles from '@/app/program/programs.module.css'
 import { parseProgramsData, Tags } from '@latimeria/core'
-import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { atom, useAtom, useAtomValue } from 'jotai'
 import { atomWithReset, useResetAtom } from 'jotai/utils'
 import {
   Button,
@@ -20,16 +20,16 @@ import { MdOutlineCancel } from 'react-icons/md'
 // TODO:サンプルデータにつきデータ取り扱いの正式な方式を考慮必要
 const programsAtom = atom(parseProgramsData(ProgramSample))
 const tagsAtom = atomWithReset(new Tags([]))
-const kindAtom = atomWithReset('')
-const placeAtom = atomWithReset('')
+const kindAtom = atomWithReset('選択しない')
+const placeAtom = atomWithReset('選択しない')
 const matchedProgramsAtom = atom((get) => {
   const programs = get(programsAtom)
   const tags = get(tagsAtom)
   const kind = get(kindAtom)
   const place = get(placeAtom)
-  const kindAndTags = kind ? new Tags([...tags, kind]) : tags
-  const placeAndKindAndTags = place ? new Tags([...kindAndTags, place]) : kindAndTags
-  return kindAndTags.size > 0 ? programs.matchPrograms(placeAndKindAndTags) : programs
+  const kindAndTags = kind == '選択しない' ? tags : new Tags([...tags, kind])
+  const placeAndKindAndTags = place == '選択しない' ? kindAndTags : new Tags([...kindAndTags, place])
+  return placeAndKindAndTags.size > 0 ? programs.matchPrograms(placeAndKindAndTags, true) : programs
 })
 
 /**
@@ -45,8 +45,21 @@ export function ProgramsView() {
       <h2>企画一覧/検索</h2>
       <ProgramInput onchange={setTags} tags={tags} />
       <div className={styles.programSearchLine}>
-        <KindSelectMenu />
-        <PlaceSelectMenu />
+
+        <div className={styles.programSearchLineItem}>
+          <div className={styles.programSearchLinePItem}>
+            <p>種類：</p>
+          </div>
+          <KindSelectMenu />
+        </div>
+
+        <div className={styles.programSearchLineItem}>
+          <div className={styles.programSearchLinePItem}>
+            <p>場所：</p>
+          </div>
+          <PlaceSelectMenu />
+        </div>
+
         <SearchQueryClearButton />
       </div>
       <ProgramView programs={matchedPrograms} />
@@ -59,11 +72,13 @@ export function ProgramsView() {
  * @constructor
  */
 function KindSelectMenu() {
-  const setKind = useSetAtom(kindAtom)
+  const [kind, setKind] = useAtom(kindAtom)// const setKind = useSetAtom(kindAtom)
   return (
     <Select
       onSelectionChange={selected => setKind(selected)}
-      placeholder="種類"
+      placeholder="選択しない"
+      selectedKey={kind}
+      defaultSelectedKey="選択しない"
     >
       <Button className={styles.programSelectPullDown}>
         <SelectValue />
@@ -71,12 +86,13 @@ function KindSelectMenu() {
       </Button>
       <Popover>
         <ListBox className={styles.programSelectPullDownItems}>
-          <ListBoxItem id="体験">体験</ListBoxItem>
-          <ListBoxItem id="展示">展示</ListBoxItem>
-          <ListBoxItem id="上演">上演</ListBoxItem>
-          <ListBoxItem id="販売">販売</ListBoxItem>
-          <ListBoxItem id="配布">配布</ListBoxItem>
-          <ListBoxItem id="募金">募金</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="選択しない">選択しない</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="体験">体験</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="展示">展示</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="上演">上演</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="販売">販売</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="配布">配布</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="募金">募金</ListBoxItem>
         </ListBox>
       </Popover>
     </Select>
@@ -88,11 +104,13 @@ function KindSelectMenu() {
  * @constructor
  */
 function PlaceSelectMenu() {
-  const setPlace = useSetAtom(placeAtom)
+  const [place, setPlace] = useAtom(placeAtom)// const setPlace = useSetAtom(placeAtom)
   return (
     <Select
       onSelectionChange={selected => setPlace(selected)}
-      placeholder="場所"
+      placeholder="選択しない"
+      selectedKey={place}
+      defaultSelectedKey="選択しない"
     >
       <Button className={styles.programSelectPullDown}>
         <SelectValue />
@@ -100,14 +118,15 @@ function PlaceSelectMenu() {
       </Button>
       <Popover>
         <ListBox className={styles.programSelectPullDownItems}>
-          <ListBoxItem id="1F">1F</ListBoxItem>
-          <ListBoxItem id="2F">2F</ListBoxItem>
-          <ListBoxItem id="3F">3F</ListBoxItem>
-          <ListBoxItem id="4F">4F</ListBoxItem>
-          <ListBoxItem id="5F">5F</ListBoxItem>
-          <ListBoxItem id="屋上">屋上</ListBoxItem>
-          <ListBoxItem id="体育館">体育館</ListBoxItem>
-          <ListBoxItem id="交流センター">交流センター</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="選択しない">選択しない</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="1F">1F</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="2F">2F</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="3F">3F</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="4F">4F</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="5F">5F</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="屋上">屋上</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="体育館">体育館</ListBoxItem>
+          <ListBoxItem className={styles.programSelectPullDownItem} id="交流センター">交流センター</ListBoxItem>
         </ListBox>
       </Popover>
     </Select>
@@ -125,10 +144,14 @@ function SearchQueryClearButton() {
         resetKind()
         resetPlace()
       }}
-      className={styles.programSelectResetButton}
+      className={`${styles.programSelectResetButton} touchable smallButton`}
     >
-      <MdOutlineCancel />
-      条件をクリアする
+      <div className={styles.programSearchResetButtonContent}>
+        <MdOutlineCancel />
+        <div className={styles.programSearchResetButtonContentDiv}>
+          <p>条件をリセットする</p>
+        </div>
+      </div>
     </Button>
   )
 }
