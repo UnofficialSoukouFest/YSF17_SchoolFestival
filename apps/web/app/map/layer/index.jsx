@@ -46,31 +46,18 @@ export function PlacePolygon({ id, pathOptions, children }) {
   const groupContext = useContext(FloorLayerGroupContext)
   const svgController = new SVGController(groupContext.content)
   const [svgWidth, svgHeight] = svgController.getSVGSize()
-  const picWidth = groupContext.picwidth
-  const picHeight = groupContext.picheight
   const matched = svgController.matchedPropertyValues((property, value) => {
     return property === 'id' && value === id
   })
   const polygonsWithMeta = svgController.convertPathToPolygons(matched[0].properties['d'])
   let polygons = []
-  let zoomRatio
-  let paddingWidth = 0, paddingHeight = 0
-  console.log(svgHeight, svgWidth)
-  if (picWidth / svgWidth > picHeight / svgHeight) {
-    zoomRatio = picHeight / svgHeight
-    paddingWidth = (picWidth - svgWidth * zoomRatio) / 2
-  }
-  else {
-    zoomRatio = picWidth / svgWidth
-    paddingHeight = (picHeight - svgHeight * zoomRatio) / 2
-  }
   for (const polygonGroup of polygonsWithMeta) {
     for (const polygon of polygonGroup) {
       if (Array.isArray(polygon)) {
         /** @type {[number, number]} */
         const convertedPolygon = [
-          zoomPolygon(polygon[0], zoomRatio) + paddingWidth,
-          zoomPolygon(polygon[1], zoomRatio) + paddingHeight,
+          zoomPolygon(polygon[0], (groupContext.picwidth / svgWidth)),
+          zoomPolygon(polygon[1], (groupContext.picheight / svgHeight)),
         ]
         polygons.push(map.layerPointToLatLng(convertedPolygon))
       }
