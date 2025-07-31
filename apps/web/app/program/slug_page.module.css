@@ -8,12 +8,16 @@
 }
 .pr-tags {
   display: flex;
-  gap: 0.5em;
-  justify-content: flex-end;
+  justify-content: end;
   margin-inline: 2em;
   margin-bottom: 1em;
 }
-
+.pr-tag {
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
+  margin-left: 1em;
+  background-color: #aaa;
+}
 .pr-subject {
   display: flex;
   margin-inline: 1em;

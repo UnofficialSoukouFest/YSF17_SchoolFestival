@@ -1,7 +1,6 @@
 import styles from '../slug_page.module.css'
 import { TitleBarWithBack } from '@/app/compoent/title-bar.jsx'
 import { parseProgramsData, solveBasePath } from '@/app/lib/index.js'
-import Tags from '@/app/compoent/program/tags.jsx'
 import ProgramSample from '@/app/program.mock.json'
 import Image from 'next/image'
 
@@ -46,7 +45,14 @@ export default async function Program({ params }) {
         className={styles['pr-image']}
       />
       <div className={styles['pr-tags']}>
-        <Tags tags={program.programType} />
+        {program.programType.map((type) => {
+          return (
+            /* タグ検索できるようにしたらここを書き換える */
+            <div key={type} className={styles['pr-tag']}>
+              {type}
+            </div>
+          )
+        })}
       </div>
       <div className={styles['pr-content']}>
         <div className={styles['pr-subject']}>
