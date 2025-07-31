@@ -48,14 +48,14 @@ export default function ProgramView({ programs }) {
                             <h2>{program.name}</h2>
                             <p className={styles.cardPRText}>{program.prText || ''}</p>
                             <div className={styles.cardTags}>
-                              {program.optionalTag === undefined
-                                ? ''
-                                : program.optionalTag.map(tag => (
+                              {program.optionalTag
+                                ? program.optionalTag.map(tag => (
                                     <span key={tag} className={styles.cardTag}>
                                       #
                                       {tag}
                                     </span>
-                                  ))}
+                                  ))
+                                : ''}
                             </div>
                           </div>
                         </div>
