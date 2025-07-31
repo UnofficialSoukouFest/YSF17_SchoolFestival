@@ -5,6 +5,7 @@ import { CRS, LatLng } from 'leaflet'
 import { LayersControl, MapContainer } from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css' // リーフレットの本体のCSSの読み込み(これしないと地図が崩れる)
+import Image from 'next/image'
 
 /* eslint-disable import-x/no-duplicates */
 import OneFloorMap from './data/bg/1.svg?url'

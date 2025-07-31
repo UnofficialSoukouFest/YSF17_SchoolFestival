@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { ImageOverlay, LayerGroup, Polygon, useMap } from 'react-leaflet'
+import { ImageOverlay, LayerGroup, Polygon, Popup, useMap } from 'react-leaflet'
 import { LatLngBounds } from 'leaflet'
 import { SVGController } from '@/app/lib/index.js'
 
@@ -41,7 +41,7 @@ export function FloorLayer({ children }) {
  * @return {React.ReactNode}
  * @constructor
  */
-export function PlacePolygon({ id, pathOptions, children }) {
+export function PlacePolygon({ id, pathOptions, children, handleClick }) {
   const map = useMap()
   const groupContext = useContext(FloorLayerGroupContext)
   const svgController = new SVGController(groupContext.content)
@@ -65,6 +65,15 @@ export function PlacePolygon({ id, pathOptions, children }) {
   }
   // 最後のポリゴンは閉じるためのものなので削除
   polygons.pop()
+
+  const eventHandlers = useMemo(
+    () => ({
+      click() {
+        ()
+      },
+    }),
+    [],
+  )
 
   return (
     <LayerGroup>
