@@ -7,14 +7,14 @@
     grid-template-columns: 1fr 25%;
     padding: 10px 0 10px 0;
     flex-direction: row;
-    border-bottom: var(--semantic-divider-default) 1px solid;
+    border-bottom: var(--token-color-black-default) 1px solid;
 }
 
 .boxTitles {
     grid-column: 1;
     display: flex;
     flex-direction: column;
-    color: var(--semantic-text-dark);
+    color: black;
     flex-grow: 1;
 }
 
@@ -22,7 +22,7 @@
     flex-grow: 1;
     margin: 0;
     left: 0;
-    font-size: 1rem;
+    font-size: var(--semantic-font-size-m);
     line-height: 1.1em;
 }
 
@@ -30,7 +30,7 @@
     padding-left: 0;
     bottom: 0px;
     color: var(--semantic-text-supple);
-    font-size: 0.8rem;
+    font-size: var(--semantic-font-size-s);
     text-align: start;
     align-self: flex-start;
     font-family: var(--font-noto-sans-jp), sans-serif;

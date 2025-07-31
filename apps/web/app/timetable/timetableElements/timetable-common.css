@@ -1,23 +1,23 @@
 .even {
-    --backgroundColor: hsl(201deg, 47%, 81%);
-    --stripColor: hsl(201deg, 61%, 65%);
-    --headingColor: hsl(201deg, 84%, 49%);
+    --backgroundColor: #cce6ff;
+    --stripColor: var(--token-color-light-blue-600);
+    --headingColor: var(--token-color-blue-500);
 }
 
 .odd {
-    --backgroundColor: hsl(236deg, 35%, 76%);
-    --stripColor: hsl(236deg, 58%, 63%);
-    --headingColor: hsl(236deg, 61%, 53%);
+    --backgroundColor: #e5f2ff;
+    --stripColor: var(--token-color-light-blue-500);
+    --headingColor: var(--token-color-blue-400);
 }
 
 .even * {
-    --backgroundColor: hsl(201deg, 47%, 81%);
-    --stripColor: hsl(201deg, 61%, 65%);
-    --headingColor: hsl(201deg, 84%, 49%);
+    --backgroundColor: #cce6ff;
+    --stripColor: var(--token-color-light-blue-600);
+    --headingColor: var(--token-color-blue-500);
 }
 
 .odd * {
-    --backgroundColor: hsl(236deg, 35%, 76%);
-    --stripColor: hsl(236deg, 58%, 63%);
-    --headingColor: hsl(236deg, 61%, 53%);
+    --backgroundColor: #e5f2ff;
+    --stripColor: var(--token-color-light-blue-500);
+    --headingColor: var(--token-color-blue-400);
 }

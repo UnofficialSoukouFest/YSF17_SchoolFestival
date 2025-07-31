@@ -35,7 +35,7 @@
     width: 100%;
 
     margin: 0;
-    outline: solid 1px hsl(226deg, 30%, 37%);
+    outline: solid 1px var(--semantic-surface-border-2);
 }
 
 .startTime {
@@ -45,8 +45,8 @@
     top: -1rem;
     left: -3%;
 
-    font-size: 0.8rem;
-    color: hsl(226deg, 30%, 37%);
+    font-size: var(--semantic-font-size-s);
+    color: var(--semantic-surface-border-2);
 }
 
 .endTime {
@@ -57,7 +57,7 @@
     left: -3%;
 
     font-size: 0.8rem;
-    color: hsl(226deg, 30%, 37%);
+    color: var(--semantic-surface-border-2);
 }
 
 .column_details {
@@ -87,9 +87,8 @@
     position: relative;
     margin: 0px auto;
 
-    color: white;
+    color: var(--semantic-text-dark);
 
-    background-color: hsla(0deg, 0%, 32%, 40%);
-    background: linear-gradient(to right, hsla(0deg, 0%, 32%, 37%), hsla(0deg, 0%, 32%, 40%) 80%);
+    background-color: hsla(0deg, 0%, 70%, 20%);
     backdrop-filter: blur(4px);
 }

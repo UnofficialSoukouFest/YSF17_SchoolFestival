@@ -8,7 +8,7 @@
 
 .list a {
     text-decoration: none;
-    color: black;
+    color: var(--semantic-text-dark);
 }
 
 .list ol {
@@ -17,7 +17,7 @@
 
 .card {
     display: block;
-    border: 2px solid black;
+    border: 2px solid var(--semantic-surface-border-1);
     border-radius: 6px;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -68,7 +68,7 @@
 }
 
 .cardTag {
-    color: #42507B;
+    color: var(--semantic-hashtag-default);
 }
 
 .cardProgramType {

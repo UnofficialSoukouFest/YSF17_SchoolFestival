@@ -17,6 +17,6 @@
     color: var(--semantic-link-active);
 }
 
-.link:focus {
-  background-color: var(--token-color-yellow-450);
+.link:focus-visible {
+  background-color: var(--semantic-link-focused);
 }

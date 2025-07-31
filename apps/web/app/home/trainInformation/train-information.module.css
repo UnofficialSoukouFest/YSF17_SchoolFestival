@@ -1,0 +1,56 @@
+.infoBox {
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns: 25px 200px 100px;
+    grid-template-rows: 1fr 70px 20px;
+    font-family: var(--font-noto-sans-jp), sans-serif;
+    color: var(--semantic-text-dark);
+    border-bottom: 1px solid var(--semantic-divider-default);
+    margin-bottom: 10px;
+}
+
+.icon {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.trainName {
+    line-height: 18px;
+    font-weight: 500;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.timeTableLink {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.timetableText {
+    padding-left: 0;
+}
+
+.walkingTime {
+    position: relative;
+    top: var(--semantic-space-small);
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: end;
+    font-size: var(--semantic-font-size-l);
+    margin: 0;
+}
+
+.emph {
+    font-size: 2.5rem;
+    font-family: var(--font-line-seed-jp), sans-serif;
+    font-weight: 800;
+    color: var(--semantic-color-accent);
+}
+
+.routeLink {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    position: relative;
+    justify-self: end;
+    align-self: end;
+}

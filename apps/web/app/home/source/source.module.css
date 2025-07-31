@@ -1,0 +1,12 @@
+.text {
+    padding-left: 0;
+}
+
+.list {
+    position: relative;
+    margin-left: calc(2*var(--semantic-font-size-m));
+}
+
+.list>* {
+    margin-bottom: var(--semantic-space-medium);
+}

@@ -1,0 +1,14 @@
+.countdownText {
+    padding: 0;
+    font-family: var(--font-line-seed-jp), sans-serif;
+    font-size: 1.15rem;
+    font-weight: bolder;
+    text-align: center;
+    color: var(--semantic-text-white);
+    text-shadow: hsla(220deg, 70%, 50%, 60%) 0px 0px 16px;
+}
+
+.number {
+    font-size: 2.3rem;
+    font-weight: bold;
+}

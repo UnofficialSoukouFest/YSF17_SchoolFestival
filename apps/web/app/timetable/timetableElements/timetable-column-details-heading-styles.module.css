@@ -3,7 +3,7 @@
     width: 98%;
     margin: 1%;
     aspect-ratio: 8 / 5;
-    color: white;
+    color: var(--semantic-text-dark);
 }
 
 .detail_title {
@@ -17,11 +17,11 @@
     padding: 0 1.5rem 0 1rem;
     height: 1.8rem;
 
-    font-size: 1rem;
-    color: white;
+    font-size: var(--semantic-font-size-m);
+    color: var(--semantic-text-white);
 
-    background-color: var(--stripColor);
-    border-radius: 5px;
+    background-color: var(--semantic-color-accent);
+    border-radius: var(--semantic-radius-medium);
     border: none;
 }
 
@@ -31,9 +31,10 @@
     right: 0px;
     width: 4.5rem;
     height: 2rem;
+    font-size: var(--semantic-font-size-xs);
 
     background-color: transparent;
-    color: white;
+    color: var(--semantic-text-dark);
     border: none;
 }
 

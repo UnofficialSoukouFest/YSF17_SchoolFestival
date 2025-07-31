@@ -21,7 +21,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-line-seed-jp),var(--font-noto-sans-jp), sans-serif;
+  font-family: var(--font-line-seed-jp), var(--font-noto-sans-jp), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -60,31 +60,31 @@ body.isMobile #content-base {
 :root {
   --color_touchable: hsl(220, 100%, 60%);
 }
+
 h2 {
-  font-size: 2rem;
-  color: hsl(220, 100%, 20%);
+  font-size: var(--semantic-font-size-heading);
+  color: var(--semantic-color-primary);
   margin: 0 0 1rem 0;
   scroll-padding-top: 80px;
-  border-bottom: solid 2px hsla(200, 100%, 60%, 0.8);
 }
+
 h3 {
   position: relative;
   left: 1rem;
-  font-size: 1.6rem;
+  font-size: var(--semantic-font-size-heading2);
   margin: 0.8rem 0 0.4rem 0;
 }
+
 p {
-  font-size: 1rem;
+  font-size: var(--semantic-font-size-content);
   padding-left: 1em;
 }
+
 a:not(:has(*)) {
   display: inline-block;
   color: var(--semantic-link-default);
   border-bottom: 2px solid;
   text-decoration: none;
-}
-a:focus {
-  background-color: var(--semantic-link-focused);
 }
 
 .contentBox {
@@ -94,15 +94,18 @@ a:focus {
   /*background-color: #FCFCFC;*/
   margin: 30px auto;
 }
+
 .touchable {
-  box-shadow: 0px 0px 10px hsla(240, 50%, 70%, 0.1);
+  box-shadow: 0px 3px 10px hsla(240, 50%, 70%, 0.2);
 }
+
 .touchable:hover {
-  box-shadow: 0px 0px 20px hsla(240, 80%, 70%, 0.3);
+  box-shadow: 0px 6px 20px hsla(240, 50%, 70%, 0.3);
 }
 
 .bigButton {
-  box-shadow: #000000 0px 5px 10px; /** #00000055*/
+  box-shadow: #000000 0px 5px 10px;
+  /** #00000055*/
 }
 
 .smallButton {
@@ -116,6 +119,7 @@ a:focus {
   line-height: 2rem;
 
   background-color: #fcfcfc;
-  border: 3px solid var(--semantic-color-primary);/** hsl(220, 100%, 70%); */
+  border: 3px solid var(--semantic-color-primary);
+  /** hsl(220, 100%, 70%); */
   border-radius: 2rem;
 }

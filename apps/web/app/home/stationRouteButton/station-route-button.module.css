@@ -1,0 +1,13 @@
+.button {
+    display: flex;
+    align-items: center;
+    font-size: var(--semantic-font-size-l);
+    background-color: var(--semantic-color-primary);
+    color: var(--semantic-text-white);
+    border-radius: var(--semantic-radius-medium);
+    padding: 0 var(--semantic-space-small);
+}
+
+.icon {
+    height: var(--semantic-font-size-l);
+}

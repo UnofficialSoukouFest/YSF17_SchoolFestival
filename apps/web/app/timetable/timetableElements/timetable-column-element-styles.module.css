@@ -8,10 +8,10 @@
     width: 90%;
     margin: 0 auto;
 
-    color: white;
+    color: var(--semantic-text-white);
 
     background-color: var(--stripColor);
-    box-shadow: hsla(0deg, 0%, 0%, 10%) 1px 2px 16px;
+    box-shadow: var(--semantic-shadow-default) 0px 2px 4px;
 }
 
 .columnElement p {
@@ -29,22 +29,26 @@
     width: 1.5rem;
     left: 4%;
 
-    filter: drop-shadow(1px 2px 16px hsla(0deg, 0%, 0%, 10%));
+    filter: drop-shadow(1px 2px 16px var(--semantic-shadow-default));
 }
 
 .ticketDistribution {
     width: 100%;
     height: 100%;
 
-    background-color: hsl(61deg, 86%, 69%);
+    background-color: var(--semantic-color-accent);
     clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - .75rem), 50% 100%, 0% calc(100% - .75rem));
 }
 
 .ticketDistribution p {
     writing-mode: vertical-rl;
-    padding-left: .1rem;
+    font-family: var(--font-noto-sans-jp), sans-serif;
+    font-weight: 600;
+    padding-left: 0;
     padding-top: .3rem;
+    letter-spacing: 2px;
     white-space: nowrap;
-    font-size: 0.8rem;
-    color: hsl(226deg, 48%, 25%);
+    font-size: var(--semantic-font-size-s);
+    line-height: 1.5rem;
+    color: var(--semantic-text-white);
 }

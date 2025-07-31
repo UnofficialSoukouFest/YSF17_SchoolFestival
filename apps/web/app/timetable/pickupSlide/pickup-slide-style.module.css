@@ -1,20 +1,20 @@
 .slideBackground {
     width: 100%;
     margin-bottom: 50px;
-    background-color: hsl(61deg, 86%, 69%);
-    border: solid 20px hsl(61deg, 86%, 69%);
+    background-color: #cce6ff;
+    border: solid 20px #cce6ff;
 }
 
 .slide {
     position: relative;
     width: 335px;
     aspect-ratio: 8 / 5;
-    background-color: hsl(201deg, 84%, 49%);
-    box-shadow: 0px 0px 8px hsla(0deg, 0%, 0%, 20%);
+    background-color: var(--semantic-color-primary);
+    box-shadow: 0px 0px 8px var(--semantic-shadow-default);
 }
 
 .text {
-    color: white;
+    color: var(--semantic-text-white);
     padding-left: 30px;
 }
 
@@ -43,8 +43,9 @@
     height: 40px;
     border: none;
     background-color: white;
+    color: var(--semantic-color-primary);
     border-radius: 50%;
-    box-shadow: 0px 0px 8px hsla(0deg, 0%, 0%, 20%);
+    box-shadow: 0px 4px 8px var(--semantic-shadow-default);
 }
 
 .backward {

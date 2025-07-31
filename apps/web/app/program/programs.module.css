@@ -7,7 +7,7 @@
 
 .programSelectPullDown {
   border: none;
-  background: rgb(238, 238, 238, 0.9);
+  background: var(--semantic-surface-1);
   padding: 0.35em;
   border-radius: 0.35em;
   margin: 0.15em;
@@ -32,7 +32,7 @@
 .programSelectResetButton {
   font-size: 1rem;
   background: none;
-  color: #42507B;
+  color: var(--semantic-color-tertiary);
   border: none;
 }
 

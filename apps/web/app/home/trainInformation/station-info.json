@@ -1,0 +1,18 @@
+[
+    {
+        "trainName": "鶴見小野駅(JR鶴見線)",
+        "walkingTime": "1",
+        "iconColor1": "#f2d01f",
+        "iconColor2": "#808080",
+        "routeURL": "https://maps.app.goo.gl/djcUFHX1f4i69k4i6",
+        "timetableURL": "https://www.jreast-timetable.jp/2508/timetable/tt1026/1026021.html"
+    },
+    {
+        "trainName": "花月総持寺駅(京急線)",
+        "walkingTime": "10",
+        "iconColor1": "#33c2e4",
+        "iconColor2": "#3d5399",
+        "routeURL": "https://maps.app.goo.gl/t5h4sQ8TfzbLrR5B8",
+        "timetableURL": "https://www.keikyu.co.jp/ride/kakueki/KK30.html"
+    }
+]

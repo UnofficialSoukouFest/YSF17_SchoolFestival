@@ -1,0 +1,19 @@
+.S {
+    width: 100%;
+    height: var(--semantic-space-small);
+}
+
+.M {
+    width: 100%;
+    height: var(--semantic-space-medium);
+}
+
+.L {
+    width: 100%;
+    height: var(--semantic-space-large);
+}
+
+.XL {
+    width: 100%;
+    height: 120px;
+}

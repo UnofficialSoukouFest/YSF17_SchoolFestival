@@ -1,28 +1,5 @@
-:root {
-  /**/
-}
-
 html {
   scroll-behavior: smooth;
-}
-
-#top_visual {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  background-color: #fcfcfc;
-}
-
-#countdown_display {
-  text-align: center;
-  color: #fcfcff;
-  text-shadow: hsla(220deg, 70%, 50%, 60%) 0px 0px 16px;
-}
-
-#countdown_display span {
-  font-size: 2.3rem;
-  font-weight: bold;
 }
 
 #home_index ul {
@@ -38,34 +15,6 @@ html {
   display: inline-block;
   color: hsl(220, 100%, 60%);
   border-bottom: 2px solid;
-}
-
-#container_trainTimetable {
-  display: flex;
-  justify-content: space-around;
-}
-
-/** .button_trainTimetable {
-  position: relative;
-  display: inline-block;
-  width: 10rem;
-  height: 2rem;
-
-  text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 2rem;
-
-  background-color: #fcfcfc;
-  border: 3px solid hsl(220, 100%, 70%);
-  border-radius: 2rem;
-} */
-
-.slide {
-  position: relative;
-  width: 90%;
-  margin: 0 auto;
-  aspect-ratio: 16 / 10.5;
 }
 
 #YSFmap {

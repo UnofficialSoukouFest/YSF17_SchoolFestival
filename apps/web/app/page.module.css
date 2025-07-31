@@ -4,124 +4,26 @@
   justify-content: center;
 }
 
-.topImage {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.page> :not(.topVisualContainer) {
+  width: 92vw;
+  margin: 0 auto;
 }
 
-.top_cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+.mainHeading {
+  font-size: 3rem;
+  font-weight: 700;
 }
 
-.coverUnopen {
-  background-color: hsla(0deg, 0%, 0%, 40%);
-  backdrop-filter: blur(4px);
+.subHeading {
+  padding-left: 10px;
+  font-size: var(--semantic-font-size-l);
+  font-weight: 700;
 }
 
-.coverOpened {
-  background: linear-gradient(hsla(0deg, 0%, 0%, 0%) 50%, hsla(0deg, 0%, 0%, 50%));
-}
-
-.coverClosed {
-  background-color: hsla(0deg, 0%, 0%, 40%);
-}
-
-.topVisualContainer {
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.topInfoContainer {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  color: #fcfcff;
-  z-index: 2;
-}
-
-.headText {
-  padding: 0;
-  font-size: 1.2rem;
-  font-family: var(--font-noto-sans-jp), sans-serif;
-  font-weight: 400;
-  text-shadow: hsla(220deg, 90%, 30%, 90%) 0px 0px 8px;
-}
-
-.middleInfoContainer {
-  position: absolute;
-  width: 100%;
-  top: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #fcfcff;
-  z-index: 2;
-  text-align: center;
-}
-
-.closedText1 {
-  padding: 0;
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  font-family: var(--font-noto-sans-jp), sans-serif;
-  font-weight: 200;
-}
-
-.closedText2 {
-  padding: 0;
-  font-size: 1.7rem;
-  font-weight: bolder;
-  text-shadow: hsla(220deg, 70%, 50%, 60%) 0px 0px 16px;
-}
-
-.countdownText {
-  padding: 0;
-  font-size: 1.6rem;
-  font-weight: bolder;
-}
-
-.subInfoContainer {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-grow: 1;
-  width: min(400px, 100%);
-  left: 10px;
-  bottom: 80px;
-  z-index: 2;
-  color: #fcfcff;
-}
-
-.subtitle {
-  padding: 0;
-  font-size: 1.67rem;
-  font-family: var(--font-noto-sans-jp), sans-serif;
-  font-weight: 900;
-}
-
-.title {
-  font-size: 4.5rem;
-  font-family: var(--font-noto-sans-jp), sans-serif;
-  font-feature-settings: "palt";
-  font-weight: 900;
-  line-height: 4.8rem;
-}
-
-.title_thin {
-  font-weight: 300;
-}
-
-.titleInfo {
-  padding: 0;
-  font: 1.2rem var(--font-noto-sans-jp);
-  font-weight: 300;
+.slide {
+  position: relative;
+  width: 100% !important;
+  aspect-ratio: 16 / 12;
+  margin: 0 !important;
+  border: none !important;
 }

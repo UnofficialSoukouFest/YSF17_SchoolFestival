@@ -5,7 +5,7 @@
     margin-top: 5px;
     aspect-ratio: 8 / 5;
     background-color: var(--headingColor);
-    color: white;
+    color: var(--semantic-text-white);
 }
 
 .teamName {
@@ -34,7 +34,7 @@
     background-color: transparent;
     border: none;
 
-    color: white;
+    color: var(--semantic-text-white);
     text-align: right;
 
     display: flex;

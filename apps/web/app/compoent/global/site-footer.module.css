@@ -8,7 +8,7 @@
 .ft-bg {
   position: absolute; /* ft-base基準 */
   width: 100%;
-  background-color: #213060;
+  background-color: var(--token-color-dark-blue-1000);
 }
 
 .ft-main {
@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-noto-sans-jp), sans-serif;
-  color: #87a3ff;
+  color: var(--token-color-light-blue-400);
   font-weight: bold;
 }
 

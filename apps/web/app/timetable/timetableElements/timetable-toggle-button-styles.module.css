@@ -8,8 +8,8 @@
     font-weight: bold;
 
     border-radius: 2rem;
-    border: solid 1px #AAAAAA;
-    background-color: #D9D9D9;
+    border: solid 1px #808080;
+    background-color: var(--semantic-surface-1);
 
     display: flex;
 
@@ -17,7 +17,7 @@
 
 .text11 {
     flex-grow: 1;
-    color: white;
+    color: var(--semantic-text-white);
 
     animation-fill-mode: forwards;
     animation-duration: 0.2s;
@@ -36,8 +36,8 @@
     clip-path: polygon(20% -50%, 120% -50%, 120% 150%, 20% 150%);
     border-top-right-radius: var(--buttonStrokeWeight);
     border-bottom-right-radius: var(--buttonStrokeWeight);
-    outline: solid var(--buttonStrokeWeight) #149CE5;
-    background-color: #149CE5;
+    outline: solid var(--buttonStrokeWeight) var(--semantic-color-primary);
+    background-color: var(--semantic-color-primary);
 }
 
 .background_left2 {
@@ -48,10 +48,10 @@
     width: calc(50% + 2*var(--buttonStrokeWeight));
     height: calc(100% + 2*var(--buttonStrokeWeight));
 
-    outline: solid var(--buttonStrokeWeight) #149CE5;
+    outline: solid var(--buttonStrokeWeight) var(--semantic-color-primary);
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
-    background-color: #149CE5;
+    background-color: var(--semantic-color-primary);
 }
 
 .background_right1 {
@@ -65,8 +65,8 @@
     clip-path: polygon(80% -50%, -20% -50%, -20% 150%, 80% 150%);
     border-top-left-radius: var(--buttonStrokeWeight);
     border-bottom-left-radius: var(--buttonStrokeWeight);
-    outline: solid var(--buttonStrokeWeight) #149CE5;
-    background-color: #149CE5;
+    outline: solid var(--buttonStrokeWeight) var(--semantic-color-primary);
+    background-color: var(--semantic-color-primary);
 }
 
 .background_right2 {
@@ -77,27 +77,27 @@
     width: calc(50% + 2*var(--buttonStrokeWeight));
     height: calc(100% + 2*var(--buttonStrokeWeight));
 
-    outline: solid var(--buttonStrokeWeight) #149CE5;
+    outline: solid var(--buttonStrokeWeight) var(--semantic-color-primary);
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
-    background-color: #149CE5;
+    background-color: var(--semantic-color-primary);
 }
 
 .text12 {
     width: 50%;
     flex-grow: 0;
-    color: #AAAAAA;
+    color: #808080;
 }
 
 .text21 {
     width: 50%;
     flex-grow: 0;
-    color: #AAAAAA;
+    color: #808080;
 }
 
 .text22 {
     flex-grow: 1;
-    color: white;
+    color: var(--semantic-text-white);
 
     animation-fill-mode: forwards;
     animation-duration: 0.2s;

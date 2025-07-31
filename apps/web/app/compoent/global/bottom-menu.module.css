@@ -41,7 +41,7 @@
   text-decoration: none; /* <a>タグは標準で underline してしまうので */
 }
 .btmenu-item-active {
-  background-color: #42507B;
+  background-color: var(--semantic-menu-selected);
   color: var(--background);
 }
 .btmenu-item-normal {
