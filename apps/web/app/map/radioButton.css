@@ -1,0 +1,29 @@
+.leaflet-control-layers-base label span span {
+    display: inline-block;
+    color: #000000;
+    border-radius: 7px;
+    padding: 5px;
+    width: 4rem;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 3px;
+}
+.leaflet-control-layers-base label span span:hover {
+    border: 1px solid hsl(220, 100%, 70%);
+    background: #FFFFFF;
+    color: hsl(220, 100%, 70%);
+    width: 4rem;
+}
+.leaflet-control-layers-base label span input[type="radio"]:checked + span{
+    border: 3px solid hsl(220, 100%, 70%) !important;
+    color: hsl(220, 100%, 70%) !important;
+    font-weight: 700;
+    width: 4rem;
+    background-color: #FFFFFF !important;
+    box-shadow: 0 0 6px 0 hsl(220, 100%, 70%);
+}
+.leaflet-control-layers-selector {
+    display: none;
+}
