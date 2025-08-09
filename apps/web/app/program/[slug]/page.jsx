@@ -1,7 +1,7 @@
 import styles from '../slug_page.module.css'
 import { TitleBarWithBack } from '@/app/compoent/title-bar.jsx'
 import { parseProgramsData, solveBasePath } from '@/app/lib/index.js'
-import Tags from '@/app/compoent/program/tags.jsx'
+import Tags from '@/app/program/program/tags.jsx'
 import ProgramSample from '@/app/program.mock.json'
 import Image from 'next/image'
 

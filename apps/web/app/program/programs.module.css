@@ -1,8 +1,20 @@
 .programSearchLine {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 1em;
   gap: 1rem;
+}
+.programSearchLineItem {
+  display: flex;
+  flex-direction: row;
+}
+.programSearchLinePItem {
+  display: flex;
+  align-items: center;
+}
+.programSearchLinePItem p {
+  padding-left: 0px;
 }
 
 .programSelectPullDown {
@@ -12,6 +24,11 @@
   border-radius: 0.35em;
   margin: 0.15em;
   font-size: 1rem;
+
+  &[data-focus-visible] {
+    outline: 3px solid var(--semantic-color-accent);
+    outline-offset: -1px;
+  }
 }
 
 .programSelectPullDownItems {
@@ -23,10 +40,59 @@
   position: absolute;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 4px;
-  padding: 0.75em 1.0em 0.75em 0.75em;
+  padding: 0.75em 0.3rem 0.3rem 0.75em;
   margin: 0.15em;
   z-index: 1;
   white-space: nowrap;
+  
+}
+
+.programSelectPullDownItem {
+  /**padding: 0 0.571rem 0 1.571rem; */
+  padding-left: 1rem;
+  padding: 0.3rem;
+  margin: 0.5rem 0.4rem 0.5rem 0rem;
+  border-radius: 3px;
+
+  &[data-focus-visible] {
+    outline: 3px solid var(--semantic-color-accent);
+  }
+
+  &[data-selected] {
+    font-weight: 600;
+    background: var(--semantic-color-tertiary);
+    color: var(--semantic-text-white);
+     /** &::before {
+      content: '✓';
+      content: '✓' / '';
+      alt: ' ';
+      position: absolute;
+      top: 16px;
+      left: 4px;
+    } */
+  }
+
+  /** &[data-focused], */
+  &[data-pressed] {
+    background: var(--semantic-color-secondly);
+    /** color: var(--highlight-foreground); */
+  }
+}
+
+.programSearchResetButtonContent {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.programSearchResetButtonContent svg {
+  margin: auto;
+}
+.programSearchResetButtonContentDiv {
+  display: flex;
+  align-items: center;
+}
+.programSearchResetButtonContentDiv p {
+  padding-left: 0px;
 }
 
 .programSelectResetButton {

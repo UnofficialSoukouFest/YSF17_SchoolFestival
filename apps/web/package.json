@@ -17,6 +17,7 @@
     "@latimeria/ganoine": "*",
     "gray-matter": "^4.0.3",
     "jotai": "^2.12.5",
+    "jotai-location": "^0.6.1",
     "leaflet": "^1.9.4",
     "next": "15.4.2",
     "react": "19.1.0",

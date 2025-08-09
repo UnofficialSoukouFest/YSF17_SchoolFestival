@@ -3,7 +3,9 @@ import styles from './program-view.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { solveBasePath } from '@/app/lib/index.js'
-import Tags from '@/app/compoent/program/tags'
+import Tags from '@/app/program/program/tags.jsx'
+import { useAtomValue } from 'jotai'
+import { matchedProgramsAtom } from '@/app/program/program/atoms'
 
 /** @type {string[]} */
 const ariaOrder = Object.values(ariaType)
@@ -19,12 +21,9 @@ function groupArray(array) {
   return Object.entries(groups).map(([aria, item]) => ({ aria, item }))
 }
 
-/**
- *
- * @param {import("@latimeria/core").Programs} programs
- * @constructor
- */
-export default function ProgramView({ programs }) {
+export default function ProgramView() {
+  /** @type {import("@latimeria/core").Programs} */
+  const programs = useAtomValue(matchedProgramsAtom)
   const programsArray = [...programs.iter()].sort((a, b) => ariaOrder.indexOf(a.aria) - ariaOrder.indexOf(b.aria))
   /** @type {[{aria:string , item:Program[]}]} */
   const ariaGroups = groupArray(programsArray)
