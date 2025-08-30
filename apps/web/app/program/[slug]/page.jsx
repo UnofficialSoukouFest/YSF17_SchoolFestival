@@ -54,12 +54,12 @@ export default async function Program({ params }) {
         <div className={styles['pr-subject']}>
           <h3>{program.name}</h3>
           <h3 style={{ marginLeft: 'auto' }}>
-            {program.aria + '階 @' + program.location}
+            {program.aria + ' @' + program.location}
           </h3>
         </div>
         <div className={styles['pr-text']}>{program.prText || ''}</div>
       </div>
-      <MapFromSpecRoom height={300} floor={Number(program.aria[0])} id={slug} />
+      <MapFromSpecRoom height={300} floor={program.floor} id={slug} />
     </>
   )
 }

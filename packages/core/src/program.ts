@@ -18,10 +18,20 @@ export const ariaType = {
   '3F': '3F',
   '4F': '4F',
   '5F': '5F',
-  'hall': 'ホール',
-  'cafeteria': 'カフェテリア',
-  'gym': '体育館',
   'rooftop': '屋上',
+  'annex1F': '交流棟1F',
+  'annex2F': '交流棟2F',
+} as const
+
+export const ariaFloor = {
+  '1F': 1,
+  '2F': 2,
+  '3F': 3,
+  '4F': 4,
+  '5F': 5,
+  'rooftop': 6,
+  'annex1F': 1,
+  'annex2F': 2,
 } as const
 
 export const programOptionsSchema = v.objectWithRest({
@@ -34,8 +44,8 @@ export const programSchema = v.object({
   name: v.pipe(v.string(), v.nonEmpty()),
   team: v.pipe(v.string(), v.nonEmpty()),
   programType: v.array(v.enum(programType)),
+  location: v.pipe(v.string(), v.nonEmpty(), v.description('教室名等')),
   aria: v.enum(ariaType),
-  location: v.pipe(v.string(), v.nonEmpty(), v.description('教室や部屋の番号')),
   prText: v.optional(v.pipe(v.string(), v.nonEmpty())),
   tag: v.optional(v.array(v.pipe(v.string(), v.maxLength(20), v.description('企画に結びつくタグ')))),
   dates: v.pipe(v.array(v.pipe(v.string(), v.isoDate())), v.minLength(0), v.maxLength(3), v.description('企画を開催する日付の配列')),
@@ -73,9 +83,9 @@ export class Program {
   id: string
   name: string
   team: string
+  programType: string[]
   location: string
   aria: string
-  programType: string[]
   prText?: string
   optionalTag?: string[]
   dates: Date[]
@@ -104,6 +114,10 @@ export class Program {
       this.location,
       ...(this.optionalTag || []),
     ])
+  }
+
+  get floor(): number {
+    return ariaFloor[this.aria as keyof typeof ariaType]
   }
 }
 
