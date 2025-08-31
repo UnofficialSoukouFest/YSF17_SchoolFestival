@@ -2,7 +2,7 @@ import styles from '../slug_page.module.css'
 import { TitleBarWithBack } from '@/app/compoent/title-bar.jsx'
 import { parseProgramsData, solveBasePath } from '@/app/lib/index.js'
 import Tags from '@/app/program/program/tags.jsx'
-import ProgramSample from '@/app/program.mock.json'
+import ProgramsData from '@/data/programs/programs.json'
 import Image from 'next/image'
 import { MapFromSpecRoom } from '@/app/compoent/map/load-map'
 
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params
 
   // fetch data
-  const programs = parseProgramsData(ProgramSample)
+  const programs = parseProgramsData(ProgramsData)
   const program = [...programs.iter()].find(program => program.id === slug)
   return {
     title: `${program.name} - 蒼煌祭17th非公式ページ`,
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export async function generateStaticParams() {
-  const programs = parseProgramsData(ProgramSample)
+  const programs = parseProgramsData(ProgramsData)
   return [...programs.iter()].map(program => ({ slug: program.id }))
 }
 
@@ -33,7 +33,7 @@ export async function generateStaticParams() {
  */
 export default async function Program({ params }) {
   const { slug } = await params
-  const programs = parseProgramsData(ProgramSample)
+  const programs = parseProgramsData(ProgramsData)
   const program = [...programs.iter()].find(program => program.id === slug)
   const imagePath = solveBasePath(program.options.imagePath ?? 'example.png')
 

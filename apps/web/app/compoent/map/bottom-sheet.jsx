@@ -5,7 +5,7 @@ import { MdClose, MdUnfoldMore, MdUnfoldLess } from 'react-icons/md'
 
 import BottomSheetProgram from './bottom-sheet-program'
 import styles from './bottom-sheet.module.css'
-import ProgramSample from '@/app/program.mock.json'
+import ProgramsData from '@/data/programs/programs.json'
 import { parseProgramsData } from '@/app/lib/index.js'
 
 /**
@@ -22,7 +22,7 @@ export default function BottomSheet({ ids, onClose }) {
     const hasProgram = ids.length > 0
     setSelectedId(hasProgram ? ids[0] : undefined)
   }, [ids])
-  const programs = useMemo(() => parseProgramsData(ProgramSample), [])
+  const programs = useMemo(() => parseProgramsData(ProgramsData), [])
   const programList = useMemo(() => [...programs.iter()], [programs])
 
   const selectedProgram = programList.find(program => program.id === selectedId)

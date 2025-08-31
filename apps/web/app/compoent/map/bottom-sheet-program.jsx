@@ -6,7 +6,7 @@ export default function BottomSheetProgram({ program }) {
   if (!program) return (
     <></>
   )
-  const imagePath = solveBasePath(program.options.imagePath ?? 'example.png')
+  const imagePath = solveBasePath(program.options?.imagePath ?? 'example.png')
   return (
     <div className={styles['btstp']}>
       <Image
