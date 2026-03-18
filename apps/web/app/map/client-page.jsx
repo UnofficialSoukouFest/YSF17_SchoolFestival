@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { MapWithBottomSheet } from '@/app/compoent/map/load-map'
+import { MapWithBottomSheet } from '@/app/component/map/load-map'
 
 export default function ClientMapPage() {
   useEffect(() => {

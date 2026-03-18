@@ -1,8 +1,8 @@
 import cafeteria from '../../cafeteria.mock.json'
 import styles from './page.module.css'
-import { TitleBarWithBack } from '@/app/compoent/title-bar.jsx'
-import WarnCallout from '@/app/compoent/warn-callout.jsx'
-import InfoCallout from '@/app/compoent/info-callout.jsx'
+import { TitleBarWithBack } from '@/app/component/title-bar.jsx'
+import WarnCallout from '@/app/component/warn-callout.jsx'
+import InfoCallout from '@/app/component/info-callout.jsx'
 import { MenuExporter } from './cafeteriamenu-exporter'
 import { solveBasePath } from '@/app/lib/index.js'
 

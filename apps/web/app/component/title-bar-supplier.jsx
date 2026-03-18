@@ -1,6 +1,6 @@
 'use client'
 
-import { TitleBar } from '@/app/compoent/title-bar.jsx'
+import { TitleBar } from '@/app/component/title-bar.jsx'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 export function Titlebar({ pagename = '無題' }) {

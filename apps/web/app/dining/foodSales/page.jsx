@@ -1,5 +1,5 @@
 import { FoodSalesElement } from './food-sales.jsx'
-import { TitleBarWithBack } from '@/app/compoent/title-bar.jsx'
+import { TitleBarWithBack } from '@/app/component/title-bar.jsx'
 import Link from 'next/link'
 import { solveBasePath } from '@/app/lib/index.js'
 

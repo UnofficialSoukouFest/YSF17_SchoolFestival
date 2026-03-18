@@ -1,10 +1,10 @@
 import styles from '../slug_page.module.css'
-import { TitleBarWithBack } from '@/app/compoent/title-bar.jsx'
+import { TitleBarWithBack } from '@/app/component/title-bar.jsx'
 import { parseProgramsData, solveBasePath } from '@/app/lib/index.js'
 import Tags from '@/app/program/program/tags.jsx'
 import ProgramSample from '@/app/program.mock.json'
 import Image from 'next/image'
-import { MapFromSpecRoom } from '@/app/compoent/map/load-map'
+import { MapFromSpecRoom } from '@/app/component/map/load-map'
 
 export async function generateMetadata({ params }) {
   // read route params

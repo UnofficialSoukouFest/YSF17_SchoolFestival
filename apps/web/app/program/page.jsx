@@ -1,5 +1,5 @@
 import { ProgramsView } from '@/app/program/programs.jsx'
-import { Titlebar } from '@/app/compoent/title-bar-supplier.jsx'
+import { Titlebar } from '@/app/component/title-bar-supplier.jsx'
 
 export const metadata = {
   title: '企画 - 蒼煌祭17th非公式ページ',

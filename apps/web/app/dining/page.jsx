@@ -1,6 +1,6 @@
 import styles from './page.module.css'
-import { ImageButton } from '@/app/compoent/image-button'
-import { Titlebar } from '@/app/compoent/title-bar-supplier.jsx'
+import { ImageButton } from '@/app/component/image-button'
+import { Titlebar } from '@/app/component/title-bar-supplier.jsx'
 
 export const metadata = {
   title: '食事 - 蒼煌祭17th非公式ページ',

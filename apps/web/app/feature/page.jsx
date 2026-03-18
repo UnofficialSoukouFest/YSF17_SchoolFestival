@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import matter from 'gray-matter'
 import FeatureCard from '@/app/feature/feature-card'
 import style from './page.module.css'
-import { Titlebar } from '@/app/compoent/title-bar-supplier.jsx'
+import { Titlebar } from '@/app/component/title-bar-supplier.jsx'
 
 export const metadata = {
   title: '特集一覧 - 蒼煌祭17th非公式ページ',
