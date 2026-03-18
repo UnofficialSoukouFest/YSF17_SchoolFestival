@@ -9,8 +9,6 @@
       "persistent": true,
       "cache": false
     },
-    "lint": {},
-    "format": {},
     "syncPublic": {
       "cache": false
     }

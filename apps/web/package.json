@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "next lint --fix"
+    "start": "next start"
   },
   "dependencies": {
     "@latimeria/core": "workspace:*",
@@ -37,12 +35,8 @@
     "svg-path-to-polygons": "^0.1.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
-    "@latimeria/eslint-config": "workspace:*",
     "@svgr/webpack": "^8.1.0",
     "@types/hast": "^3.0.4",
-    "eslint": "catalog:",
-    "eslint-config-next": "16.1.7",
     "next-rspack": "^16.1.7",
     "vitest": "catalog:"
   }

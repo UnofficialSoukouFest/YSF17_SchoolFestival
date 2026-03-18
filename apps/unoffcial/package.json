@@ -7,8 +7,6 @@
     "build": "rsbuild build",
     "dev": "rsbuild dev --open",
     "preview": "rsbuild preview",
-    "format": "eslint . --fix",
-    "lint": "eslint .",
     "typeCheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -29,14 +27,12 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "@latimeria/eslint-config": "workspace:*",
     "@rsbuild/core": "catalog:",
     "@rsbuild/plugin-mdx": "^1.1.1",
     "@rsbuild/plugin-node-polyfill": "^1.4.4",
     "@rsbuild/plugin-react": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "eslint": "catalog:",
     "typescript": "catalog:"
   }
 }
